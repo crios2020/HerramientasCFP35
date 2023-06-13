@@ -1,0 +1,2 @@
+-- DML Data Manipulation Language (Lenguaje de manipulación de datos)
+-- DML registros (Registros de prueba)
