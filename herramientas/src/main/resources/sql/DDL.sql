@@ -12,18 +12,20 @@ create table socios(
 	id int auto_increment primary key,
     nombre varchar(25) not null check (length(nombre) >= 2),
     apellido varchar(25) not null check (length(apellido) >= 2),
-    tipo_documento enum('DNI','LC','LE','PASS') not null,
+    tipo_documento enum('DNI','LC','LE','CI','PASS') not null,
     numero_documento char(8) not null check (length(numero_documento) >= 7),
     direccion varchar(150) not null check (length(direccion) >= 8),
     celular varchar(25) not null  check (length(celular) >= 8),
     telefono_linea varchar(25),
     email varchar(50) not null check (length(email) >= 5),
-    comentarios varchar(255)
+    comentarios varchar(255),
+    unique (tipo_documento, numero_documento)
 );
 
 create table herramientas(
 	id int auto_increment primary key,
     codigo_barras varchar(50),
+    marca varchar(30),
     tipo enum('MANUAL','ELECTRICA','MEDICION') not null,
     descripcion varchar(255) not null  check (length(descripcion) >= 8),
     estado enum('BUENA','REGULAR','MALA','FUERA_DE_USO'),
@@ -40,7 +42,8 @@ create table prestamos(
     estado_devolucion enum('PENDIENTE','TERMINADO'),
     observaciones varchar(255),
     foreign key (id_herramienta) references herramientas(id),
-    foreign key (id_socio) references socios(id)
+    foreign key (id_socio) references socios(id),
+    unique (id_herramienta, id_socio, fecha_prestamo)
 );
 
 
