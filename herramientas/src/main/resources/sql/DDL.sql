@@ -36,7 +36,7 @@ create table prestamos(
 	id int auto_increment primary key,
     id_herramienta int not null,
     id_socio int not null,
-    tipo_prestamo_hs enum('24','48','72','96'),
+    tipo_prestamo_hs enum('h24','h48','h72','h96'),
     fecha_prestamo date not null,
     fecha_devolucion date check (fecha_devolucion >= fecha_prestamo),
     estado_devolucion enum('PENDIENTE','TERMINADO'),
