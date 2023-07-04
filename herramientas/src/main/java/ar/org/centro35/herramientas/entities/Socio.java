@@ -11,7 +11,7 @@ public class Socio {
     private String numero_documento;
     private String direccion;
     private String celular;
-    private String telefono;
+    private String telefono_linea;
     private String email;
     private String comentarios;
 
@@ -19,20 +19,20 @@ public class Socio {
     }
 
     public Socio(String nombre, String apellido, TipoDocumento tipo_documento, String numero_documento,
-            String direccion, String celular, String telefono, String email, String comentarios) {
+            String direccion, String celular, String telefono_linea, String email, String comentarios) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.tipo_documento = tipo_documento;
         this.numero_documento = numero_documento;
         this.direccion = direccion;
         this.celular = celular;
-        this.telefono = telefono;
+        this.telefono_linea = telefono_linea;
         this.email = email;
         this.comentarios = comentarios;
     }
 
     public Socio(int id, String nombre, String apellido, TipoDocumento tipo_documento, String numero_documento,
-            String direccion, String celular, String telefono, String email, String comentarios) {
+            String direccion, String celular, String telefono_linea, String email, String comentarios) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -40,7 +40,7 @@ public class Socio {
         this.numero_documento = numero_documento;
         this.direccion = direccion;
         this.celular = celular;
-        this.telefono = telefono;
+        this.telefono_linea = telefono_linea;
         this.email = email;
         this.comentarios = comentarios;
     }
@@ -49,7 +49,8 @@ public class Socio {
     public String toString() {
         return "Socio [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", tipo_documento="
                 + tipo_documento + ", numero_documento=" + numero_documento + ", direccion=" + direccion + ", celular="
-                + celular + ", telefono=" + telefono + ", email=" + email + ", comentarios=" + comentarios + "]";
+                + celular + ", telefono_linea=" + telefono_linea + ", email=" + email + ", comentarios=" + comentarios
+                + "]";
     }
 
     public int getId() {
@@ -108,12 +109,12 @@ public class Socio {
         this.celular = celular;
     }
 
-    public String getTelefono() {
-        return telefono;
+    public String getTelefono_linea() {
+        return telefono_linea;
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    public void setTelefono_linea(String telefono_linea) {
+        this.telefono_linea = telefono_linea;
     }
 
     public String getEmail() {
@@ -131,5 +132,6 @@ public class Socio {
     public void setComentarios(String comentarios) {
         this.comentarios = comentarios;
     }
+  
 
 }

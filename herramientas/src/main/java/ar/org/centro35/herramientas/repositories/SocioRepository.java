@@ -1,0 +1,123 @@
+package ar.org.centro35.herramientas.repositories;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+import ar.org.centro35.herramientas.connectors.Connector;
+import ar.org.centro35.herramientas.entities.Herramienta;
+import ar.org.centro35.herramientas.entities.Socio;
+import ar.org.centro35.herramientas.enums.HerramientaEstado;
+import ar.org.centro35.herramientas.enums.HerramientaTipo;
+import ar.org.centro35.herramientas.enums.TipoDocumento;
+
+public class SocioRepository {
+    
+    private Connection conn=Connector.getConnection();
+
+    public void save(Socio socio){
+        if(socio==null) return;
+        try (PreparedStatement ps=conn.prepareStatement(
+            "insert into socios "+
+            "(nombre, apellido, tipo_documento, numero_documento, direccion, celular, telefono_linea, email, comentarios)"+
+            " values (?,?,?,?,?,?,?,?,?)",
+            PreparedStatement.RETURN_GENERATED_KEYS)){
+                ps.setString(1, socio.getNombre());
+                ps.setString(2, socio.getApellido());
+                ps.setString(3, socio.getTipo_documento().toString());
+                ps.setString(4, socio.getNumero_documento());
+                ps.setString(5, socio.getDireccion());
+                ps.setString(6, socio.getCelular());
+                ps.setString(7, socio.getTelefono_linea());
+                ps.setString(8, socio.getEmail());
+                ps.setString(9, socio.getComentarios());
+                ps.execute();
+                ResultSet rs=ps.getGeneratedKeys();
+                if(rs.next()) socio.setId(rs.getInt(1));
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public void remove(Socio socio){
+       if(socio==null) return;
+       try (PreparedStatement ps=conn.prepareStatement("delete from socios where id=?")){
+            ps.setInt(1,socio.getId());
+            ps.execute();
+       } catch (Exception e) {
+            System.out.println(e);
+       }
+    }
+    
+    public List<Socio>getAll(){           //select * from socios
+        List<Socio>list=new ArrayList();
+        try (ResultSet rs=conn.createStatement().executeQuery("select * from socios")){
+            while(rs.next()){
+                list.add(new Socio(
+                    rs.getInt("id"), 
+                    rs.getString("nombre"), 
+                    rs.getString("apellido"), 
+                    TipoDocumento.valueOf(rs.getString("tipo_documento")), 
+                    rs.getString("numero_documento"),
+                    rs.getString("direccion"), 
+                    rs.getString("celular"), 
+                    rs.getString("telefono_linea"), 
+                    rs.getString("email"), 
+                    rs.getString("comentarios")
+                ));
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return list;
+    }
+
+    public List<Socio>getLikeApellido(String apellido){           //select * from socios where apellido like '%apellido%'
+          List<Socio>list=new ArrayList();
+        try (ResultSet rs=conn.createStatement().executeQuery(
+                "select * from socios where apellido like '%"+apellido+"%'")){
+            while(rs.next()){
+                list.add(new Socio(
+                    rs.getInt("id"), 
+                    rs.getString("nombre"), 
+                    rs.getString("apellido"), 
+                    TipoDocumento.valueOf(rs.getString("tipo_documento")), 
+                    rs.getString("numero_documento"),
+                    rs.getString("direccion"), 
+                    rs.getString("celular"), 
+                    rs.getString("telefono_linea"), 
+                    rs.getString("email"), 
+                    rs.getString("comentarios")
+                ));
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return list;
+    }
+
+    public Socio getById(int id){     //select * from socios where id=?
+        Socio socio=new Socio();
+        try  (ResultSet rs=conn.createStatement().executeQuery("select * from socios where id="+id)) {
+            if(rs.next()){
+                socio=new Socio(
+                        rs.getInt("id"), 
+                        rs.getString("nombre"), 
+                        rs.getString("apellido"), 
+                        TipoDocumento.valueOf(rs.getString("tipo_documento")), 
+                        rs.getString("numero_documento"),
+                        rs.getString("direccion"), 
+                        rs.getString("celular"), 
+                        rs.getString("telefono_linea"), 
+                        rs.getString("email"), 
+                        rs.getString("comentarios")
+                );
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return socio; 
+    }
+}
