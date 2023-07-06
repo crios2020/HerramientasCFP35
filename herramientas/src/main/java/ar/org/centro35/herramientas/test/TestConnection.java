@@ -2,7 +2,6 @@ package ar.org.centro35.herramientas.test;
 import java.sql.ResultSet;
 import java.time.Duration;
 import java.time.LocalTime;
-import org.springframework.cglib.core.Local;
 import ar.org.centro35.herramientas.connectors.Connector;
 public class TestConnection {
     public static final String ANSI_BLACK = "\u001B[30m";

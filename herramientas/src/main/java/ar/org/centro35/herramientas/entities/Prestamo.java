@@ -8,7 +8,7 @@ public class Prestamo {
     private int id;
     private int id_herramienta;
     private int id_socio;
-    private PrestamoTipo tipo_prestamo;
+    private PrestamoTipo tipo_prestamo_hs;
     private String fecha_prestamo;
     private String fecha_devolucion;
     private PrestamoEstado estado_devolucion;
@@ -17,23 +17,23 @@ public class Prestamo {
     public Prestamo() {
     }
 
-    public Prestamo(int id_herramienta, int id_socio, PrestamoTipo tipo_prestamo, String fecha_prestamo,
+    public Prestamo(int id_herramienta, int id_socio, PrestamoTipo tipo_prestamo_hs, String fecha_prestamo,
             String fecha_devolucion, PrestamoEstado estado_devolucion, String observaciones) {
         this.id_herramienta = id_herramienta;
         this.id_socio = id_socio;
-        this.tipo_prestamo = tipo_prestamo;
+        this.tipo_prestamo_hs = tipo_prestamo_hs;
         this.fecha_prestamo = fecha_prestamo;
         this.fecha_devolucion = fecha_devolucion;
         this.estado_devolucion = estado_devolucion;
         this.observaciones = observaciones;
     }
 
-    public Prestamo(int id, int id_herramienta, int id_socio, PrestamoTipo tipo_prestamo, String fecha_prestamo,
+    public Prestamo(int id, int id_herramienta, int id_socio, PrestamoTipo tipo_prestamo_hs, String fecha_prestamo,
             String fecha_devolucion, PrestamoEstado estado_devolucion, String observaciones) {
         this.id = id;
         this.id_herramienta = id_herramienta;
         this.id_socio = id_socio;
-        this.tipo_prestamo = tipo_prestamo;
+        this.tipo_prestamo_hs = tipo_prestamo_hs;
         this.fecha_prestamo = fecha_prestamo;
         this.fecha_devolucion = fecha_devolucion;
         this.estado_devolucion = estado_devolucion;
@@ -43,7 +43,7 @@ public class Prestamo {
     @Override
     public String toString() {
         return "Prestamo [id=" + id + ", id_herramienta=" + id_herramienta + ", id_socio=" + id_socio
-                + ", tipo_prestamo=" + tipo_prestamo + ", fecha_prestamo=" + fecha_prestamo + ", fecha_devolucion="
+                + ", tipo_prestamo_hs=" + tipo_prestamo_hs + ", fecha_prestamo=" + fecha_prestamo + ", fecha_devolucion="
                 + fecha_devolucion + ", estado_devolucion=" + estado_devolucion + ", observaciones=" + observaciones
                 + "]";
     }
@@ -72,12 +72,12 @@ public class Prestamo {
         this.id_socio = id_socio;
     }
 
-    public PrestamoTipo getTipo_prestamo() {
-        return tipo_prestamo;
+    public PrestamoTipo getTipo_prestamo_hs() {
+        return tipo_prestamo_hs;
     }
 
-    public void setTipo_prestamo(PrestamoTipo tipo_prestamo) {
-        this.tipo_prestamo = tipo_prestamo;
+    public void setTipo_prestamo_hs(PrestamoTipo tipo_prestamo_hs) {
+        this.tipo_prestamo_hs = tipo_prestamo_hs;
     }
 
     public String getFecha_prestamo() {

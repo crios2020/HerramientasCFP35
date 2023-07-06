@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-
 import ar.org.centro35.herramientas.connectors.Connector;
 import ar.org.centro35.herramientas.entities.Herramienta;
 import ar.org.centro35.herramientas.enums.HerramientaEstado;

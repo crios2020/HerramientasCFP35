@@ -1,11 +1,7 @@
 package ar.org.centro35.herramientas.test;
 
-import ar.org.centro35.herramientas.entities.Herramienta;
 import ar.org.centro35.herramientas.entities.Socio;
-import ar.org.centro35.herramientas.enums.HerramientaEstado;
-import ar.org.centro35.herramientas.enums.HerramientaTipo;
 import ar.org.centro35.herramientas.enums.TipoDocumento;
-import ar.org.centro35.herramientas.repositories.HerramientaRepository;
 import ar.org.centro35.herramientas.repositories.SocioRepository;
 
 public class TestSocioRepository {

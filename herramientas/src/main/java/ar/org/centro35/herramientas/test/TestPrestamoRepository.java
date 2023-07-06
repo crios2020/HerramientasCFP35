@@ -11,10 +11,10 @@ public class TestPrestamoRepository {
 
         Prestamo prestamo=new Prestamo(
                                             3, 
-                                            1, 
+                                            2, 
                                             PrestamoTipo.h48, 
-                                            "2023/07/04", 
-                                            "2023/07/06", 
+                                            "2023/07/07", 
+                                            "2023/07/09", 
                                             PrestamoEstado.PENDIENTE, 
                                             ""
                                     );
@@ -24,5 +24,26 @@ public class TestPrestamoRepository {
         System.out.println("*******************************************************************");
         pr.save(prestamo);
         System.out.println(prestamo);
+
+        System.out.println("*******************************************************************");
+        System.out.println("* Test Prestamo Repository .remove()");
+        System.out.println("*******************************************************************");
+        pr.remove(pr.getById(6));
+
+        System.out.println("*******************************************************************");
+        System.out.println("* Test Prestamo Repository .getAll()");
+        System.out.println("*******************************************************************");
+        pr.getAll().forEach(System.out::println);
+
+        System.out.println("*******************************************************************");
+        System.out.println("* Test Prestamo Repository .getByFechaPrestamo()");
+        System.out.println("*******************************************************************");
+        pr.getByFechaPrestamo("2023-06-05").forEach(System.out::println);
+
+        System.out.println("*******************************************************************");
+        System.out.println("* Test Prestamo Repository .getById()");
+        System.out.println("*******************************************************************");
+        System.out.println(pr.getById(5));
+
     }
 }

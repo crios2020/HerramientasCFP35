@@ -1,0 +1,24 @@
+.titulo{
+    text-align: center;
+}
+
+
+/* Estilos para el reloj */
+#contReloj{
+    background: rgba(0,0,0,.7);
+    display: block;
+    margin: 5px;
+    padding: 5px;
+    text-align: center;
+    width: 160px;
+    height: 35px;
+    border-radius: 7px;
+}
+
+#contReloj > p{
+    color: #fff;
+    display: inline-block;
+    font-family: 'code_boldregular';
+    font-size: 1em;
+    padding: 3px;
+}
