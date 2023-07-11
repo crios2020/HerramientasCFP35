@@ -1,0 +1,13 @@
+- para copiar un repositorio de github git clone
+ej: git clone git clone https://github.com/crios2020/HerramientasCFP35.git
+
+
+- para traer actualizaciones de github a un repo existente git pull
+ej: git pull origin main
+
+
+- para subir actualizaciones primero hay que commitear localmente
+
+git add .
+git commit -m 'mensaje'
+git push -u origin main

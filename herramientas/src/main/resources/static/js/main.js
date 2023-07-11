@@ -12,7 +12,7 @@ function ActualizarHora() {
     elementoMinutos.textContent = minutos.toString().padStart(2, "0");
     elementoSegundos.textContent = segundos.toString().padStart(2, "0");
 
-
 }
 
 setInterval(ActualizarHora, 1000);
+

@@ -1,7 +1,11 @@
 package ar.org.centro35.herramientas.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import ar.org.centro35.herramientas.enums.HerramientaEstado;
+import ar.org.centro35.herramientas.enums.HerramientaTipo;
 
 @Controller
 public class WebControllerMain {
@@ -12,7 +16,9 @@ public class WebControllerMain {
     }
 
     @GetMapping("/herramientas")
-    public String getHerramientas(){
+    public String getHerramientas(Model model){
+        model.addAttribute("tipos", HerramientaTipo.values());
+        model.addAttribute("estados", HerramientaEstado.values());
         return "herramientas";
     }
 

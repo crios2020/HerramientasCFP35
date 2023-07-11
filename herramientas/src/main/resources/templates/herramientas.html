@@ -14,59 +14,85 @@
 <body>
     <div class="container-lg bg-primary-subtle border border-primary-subtle rounded-3">
 
-        <!-- Inicio Menú de navegación -->
-        <nav class="navbar navbar-expand-lg bg-primary">
-            <div class="container-fluid">
-                <a class="navbar-brand text-info" href="http://localhost:8080/">Herramientas</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link text-light" aria-current="page" href="http://localhost:8080/">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" aria-current="page"
-                                href="http://localhost:8080/herramientas">Herramientas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" aria-current="page"
-                                href="http://localhost:8080/socios">Socios</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" aria-current="page"
-                                href="http://localhost:8080/prestamos">Préstamos</a>
-                        </li>
-                    </ul>
-
-                    <!-- reloj -->
-                    <section id="contReloj">
-                        <p id="pHoras"></p>
-                        <p>:</p>
-                        <p id="pMinutos"></p>
-                        <p>:</p>
-                        <p id="pSegundos"></p>
-                    </section>
-
-                    <!-- Botón de busqueda -->
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success text-light" type="submit">Search</button>
-                    </form>
-                </div>
-            </div>
-        </nav>
-        <!-- Fin Menú de navegación -->
+        <!-- menu de navegación -->
+        <div id="menuPrincipal"></div>
 
         <h1 class="titulo text-primary">Mantenimiento de Herramientas</h1>
-    </div>
-</body>
 
-</html>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        <!-- Formulario Alta Herramienta-->
+        <form>
+            <!-- 
+                public Herramienta(String codigo_barras, String marca, HerramientaTipo tipo, String descripcion,
+                                HerramientaEstado estado, String observaciones)
+            -->
+            <div class="mb-3 row">
+                <div class="mb-3 row">
+                    <label for="codigo_barras" class="col-sm-2 col-form-label text-primary">Código de barras</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control text-primary" id="codigo_barras" name="codigo_barras"
+                            maxlength="13">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="marca" class="col-sm-2 col-form-label text-primary">Marca</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control text-primary" id="marca" name="marca" minlength="2"
+                            maxlength="30">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="herramientaTipo" class="col-sm-2 col-form-label text-primary">Tipo Herramienta</label>
+                    <div class="col-sm-10">
+                        <select class="form-select text-primary" aria-label="Default select example" id="herramientaTipo" name="herramientaTipo">
+                            <!--
+                            <option value="MANUAL">Manual</option>
+                            <option value="ELECTRICA">Eléctrica</option>
+                            <option value="MEDICION">Medición</option>
+                            -->
+                            <option th:each="tipo : ${tipos}" th:value="${tipo}" th:text="${tipo}"></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="descripcion" class="col-sm-2 col-form-label text-primary">Descripción</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control text-primary" id="descripcion" name="descripcion" minlength="8"
+                            maxlength="255">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="herramientaEstado" class="col-sm-2 col-form-label text-primary">Herramienta Estado</label>
+                    <div class="col-sm-10">
+                        <select class="form-select text-primary" aria-label="Default select example" id="herramientaEstado" name="herramientaEstado">
+                            <option th:each="estado : ${estados}" th:value="${estado}" th:text="${estado}"></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="observaciones" class="col-sm-2 col-form-label text-primary">Observaciones</label>
+                    <div class="col-sm-10">
+                        <textarea class="form-control text-primary" id="observaciones" name="observaciones" maxlength="255" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <button type="reset" class="btn btn-danger col-sm-3">Limpiar</button>
+                    <button type="submit" class="btn btn-primary col-sm-3">Guardar</button>    
+                </div>
+                <div class="mb-3 row">
+                    <label for="info" class="col-sm-2 col-form-label text-primary">Información</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control text-primary" id="info" name="info" readonly>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <!-- Fin Formulario Alta Herramienta-->
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
     crossorigin="anonymous"></script>
-<script src="js/main.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/menu.js"></script>
+</body>
+</html>
