@@ -6,7 +6,7 @@ import ar.org.centro35.herramientas.enums.HerramientaTipo;
 public class Herramienta {
 
     private int id;
-    private String codigo_barras="";
+    private String codigo_barras;
     private String marca;
     private HerramientaTipo tipo;
     private String descripcion;

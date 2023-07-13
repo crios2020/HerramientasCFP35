@@ -47,6 +47,11 @@ public class TestHerramientaRepository {
         System.out.println("*******************************************************************");
         hr.getLikeMarca("bo").forEach(System.out::println);
 
+        System.out.println("*******************************************************************");
+        System.out.println("* Test Herramientas Repository .getLikeDescripcion()");
+        System.out.println("*******************************************************************");
+        hr.getLikeDescripcion("si").forEach(System.out::println);
+
      
     }
 }

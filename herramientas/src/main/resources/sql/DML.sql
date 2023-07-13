@@ -39,33 +39,37 @@ INSERT INTO socios (id, nombre, apellido, tipo_documento, numero_documento, dire
 (30, 'Alessandro', 'Moretti', 'CI', '12345678', 'Piazza Navona 1, Venecia, Italia', '393401234571', NULL, 'amoretti@hotmail.com', NULL);
 
 INSERT INTO herramientas (codigo_barras, marca, tipo, descripcion, estado, observaciones) VALUES
-('123456789', 'Bosch', 'ELECTRICA', 'Taladro percutor de 18V', 'BUENA', 'Ninguna'),
-('987654321', 'Stanley', 'MANUAL', 'Juego de llaves combinadas de 12 piezas', 'BUENA', 'Ninguna'),
-('456789123', 'DeWalt', 'ELECTRICA', 'Sierra de calar de 20V', 'REGULAR', 'Le falta la hoja de sierra'),
-('789123456', 'Makita', 'ELECTRICA', 'Amoladora angular de 4 1/2 pulgadas', 'MALA', 'Cable dañado'),
-('321654987', 'Husky', 'MANUAL', 'Juego de destornilladores de 6 piezas', 'BUENA', 'Ninguna'),
-('741852963', 'Milwaukee', 'ELECTRICA', 'Llave de impacto de 1/2 pulgada', 'REGULAR', 'El mandril está flojo'),
-('159753468', 'Klein Tools', 'MANUAL', 'Pinzas de punta larga de 8 pulgadas', 'BUENA', 'Ninguna'),
-('357159246', 'Bosch', 'ELECTRICA', 'Sierra circular de 7 1/4 pulgadas', 'FUERA_DE_USO', 'Motor quemado'),
-('852147963', 'Craftsman', 'MANUAL', 'Juego de llaves de vaso de 20 piezas', 'BUENA', 'Ninguna'),
-('369258147', 'Ridgid', 'ELECTRICA', 'Taladro de ángulo recto de 12V', 'MALA', 'El gatillo está atascado'),
-('258369147', 'DeWalt', 'ELECTRICA', 'Sierra de mesa de 10 pulgadas', 'BUENA', 'Ninguna'),
-('147852369', 'Husky', 'MANUAL', 'Juego de alicates de bloqueo de 3 piezas', 'REGULAR', 'Las mandíbulas están desgastadas'),
-('369147852', 'Klein Tools', 'MANUAL', 'Destornillador de punta plana de 1/4 pulgada', 'BUENA', 'Ninguna'),
-('741852963', 'Makita', 'ELECTRICA', 'Sierra de cinta de 18V', 'MALA', 'No funciona'),
-('123789456', 'Craftsman', 'MANUAL', 'Juego de llaves allen de 10 piezas', 'BUENA', 'Ninguna'),
-('987654321', 'Milwaukee', 'ELECTRICA', 'Amoladora angular de 7 pulgadas', 'REGULAR', 'El gatillo está suelto'),
-('456123789', 'Ridgid', 'ELECTRICA', 'Martillo demoledor de 15A', 'BUENA', 'Ninguna'),
-('852369147', 'Bosch', 'MEDICION', 'Nivel láser de autonivelación de 360 grados', 'BUENA', 'Ninguna'),
-('369741852', 'DeWalt', 'ELECTRICA', 'Sierra de calar de 12V', 'MALA', 'No corta con precisión'),
-('147852369', 'Husky', 'MANUAL', 'Juego de llaves de trinquete de 20 piezas', 'BUENA', 'Ninguna');
+('1234567891654', 'Bosch', 'ELECTRICA', 'Taladro percutor de 18V', 'BUENA', 'Ninguna'),
+('1654987654321', 'Stanley', 'MANUAL', 'Juego de llaves combinadas de 12 piezas', 'BUENA', 'Ninguna'),
+('4567891231654', 'DeWalt', 'ELECTRICA', 'Sierra de calar de 20V', 'REGULAR', 'Le falta la hoja de sierra'),
+('7891234561654', 'Makita', 'ELECTRICA', 'Amoladora angular de 4 1/2 pulgadas', 'MALA', 'Cable dañado'),
+('3216549871654', 'Husky', 'MANUAL', 'Juego de destornilladores de 6 piezas', 'BUENA', 'Ninguna'),
+('7418529631654', 'Milwaukee', 'ELECTRICA', 'Llave de impacto de 1/2 pulgada', 'REGULAR', 'El mandril está flojo'),
+('1597534681654', 'Klein Tools', 'MANUAL', 'Pinzas de punta larga de 8 pulgadas', 'BUENA', 'Ninguna'),
+('3571592461654', 'Bosch', 'ELECTRICA', 'Sierra circular de 7 1/4 pulgadas', 'FUERA_DE_USO', 'Motor quemado'),
+('8521479631654', 'Craftsman', 'MANUAL', 'Juego de llaves de vaso de 20 piezas', 'BUENA', 'Ninguna'),
+('3692165458147', 'Ridgid', 'ELECTRICA', 'Taladro de ángulo recto de 12V', 'MALA', 'El gatillo está atascado'),
+('2583165469147', 'DeWalt', 'ELECTRICA', 'Sierra de mesa de 10 pulgadas', 'BUENA', 'Ninguna'),
+('1478165452369', 'Husky', 'MANUAL', 'Juego de alicates de bloqueo de 3 piezas', 'REGULAR', 'Las mandíbulas están desgastadas'),
+('3691478165452', 'Klein Tools', 'MANUAL', 'Destornillador de punta plana de 1/4 pulgada', 'BUENA', 'Ninguna'),
+('7418516549863', 'Makita', 'ELECTRICA', 'Sierra de cinta de 18V', 'MALA', 'No funciona'),
+('1237816549456', 'Craftsman', 'MANUAL', 'Juego de llaves allen de 10 piezas', 'BUENA', 'Ninguna'),
+('9165476543231', 'Milwaukee', 'ELECTRICA', 'Amoladora angular de 7 pulgadas', 'REGULAR', 'El gatillo está suelto'),
+('4165561237893', 'Ridgid', 'ELECTRICA', 'Martillo demoledor de 15A', 'BUENA', 'Ninguna'),
+('8523691654847', 'Bosch', 'MEDICION', 'Nivel láser de autonivelación de 360 grados', 'BUENA', 'Ninguna'),
+('3697418521654', 'DeWalt', 'ELECTRICA', 'Sierra de calar de 12V', 'MALA', 'No corta con precisión'),
+('1478523616549', 'Husky', 'MANUAL', 'Juego de llaves de trinquete de 20 piezas', 'BUENA', 'Ninguna');
 
 INSERT INTO herramientas (codigo_barras, marca, tipo, descripcion, estado, observaciones) VALUES
-('123456789', 'DeWalt', 'ELECTRICA', 'Sierra de inglete compuesta de 12 pulgadas', 'BUENA', 'Ninguna'),
-('987654321', 'Bosch', 'ELECTRICA', 'Sierra de mesa de 10 pulgadas', 'REGULAR', 'La guía está desajustada'),
-('456789123', 'Makita', 'ELECTRICA', 'Lijadora orbital de 5 pulgadas', 'MALA', 'El papel de lija se desliza'),
-('789123456', 'Stanley', 'MANUAL', 'Juego de cinceles de madera de 4 piezas', 'BUENA', 'Ninguna'),
-('321654987', 'DeWalt', 'ELECTRICA', 'Router de velocidad variable de 2 1/4 HP', 'BUENA', 'Ninguna');
+('1234567165489', 'DeWalt', 'ELECTRICA', 'Sierra de inglete compuesta de 12 pulgadas', 'BUENA', 'Ninguna'),
+('9816547654321', 'Bosch', 'ELECTRICA', 'Sierra de mesa de 10 pulgadas', 'REGULAR', 'La guía está desajustada'),
+('4516546789123', 'Makita', 'ELECTRICA', 'Lijadora orbital de 5 pulgadas', 'MALA', 'El papel de lija se desliza'),
+('7816549123456', 'Stanley', 'MANUAL', 'Juego de cinceles de madera de 4 piezas', 'BUENA', 'Ninguna'),
+('3216541654987', 'DeWalt', 'ELECTRICA', 'Router de velocidad variable de 2 1/4 HP', 'BUENA', 'Ninguna');
+
+-- Herramienta sin código de barras
+INSERT INTO herramientas (marca, tipo, descripcion, estado, observaciones) VALUES
+('DeWalt', 'MANUAL', 'Serrucho de mano', 'BUENA', 'Ninguna');
 
 INSERT INTO prestamos (id_herramienta, id_socio, tipo_prestamo_hs, fecha_prestamo, fecha_devolucion, estado_devolucion, observaciones) VALUES
 (1, 11, 'h24', '2023-06-10', '2023-06-11', 'TERMINADO', 'Ninguna'),

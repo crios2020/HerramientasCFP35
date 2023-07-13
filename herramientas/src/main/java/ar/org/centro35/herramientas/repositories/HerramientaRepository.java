@@ -84,6 +84,26 @@ public class HerramientaRepository {
         return list;
     }
 
+    public List<Herramienta>getLikeDescripcion(String descripcion){           //select * from herramientas where marca like '%descripcion%'
+        List<Herramienta>list=new ArrayList();
+        try (ResultSet rs=conn.createStatement().executeQuery("select * from herramientas where descripcion like '%"+descripcion+"%'")){
+            while(rs.next()){
+                list.add(new Herramienta(
+                                            rs.getInt("id"), 
+                                            rs.getString("codigo_barras"), 
+                                            rs.getString("marca"), 
+                                            HerramientaTipo.valueOf(rs.getString("tipo")), 
+                                            rs.getString("descripcion"), 
+                                            HerramientaEstado.valueOf(rs.getString("estado")), 
+                                            rs.getString("observaciones")
+                ));
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return list;
+    }
+
     public Herramienta getById(int id){     //select * from herramientas where id=?
         Herramienta herramienta=new Herramienta();
         try(ResultSet rs=conn.createStatement().executeQuery("select * from herramientas where id="+id)) {

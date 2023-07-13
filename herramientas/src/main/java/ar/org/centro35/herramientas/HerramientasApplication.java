@@ -8,6 +8,10 @@ public class HerramientasApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(HerramientasApplication.class, args);
+
+		//para arrancar el server desde una consola bash
+		//sh mvnw spring-boot:run
+		
 	}
 
 }
