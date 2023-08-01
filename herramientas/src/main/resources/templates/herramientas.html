@@ -15,7 +15,7 @@
     <div class="container-lg bg-primary-subtle border border-primary-subtle rounded-3">
 
         <!-- menu de navegación -->
-        <div id="menuPrincipal"></div>
+        <div th:insert="menu::menu"></div>
 
         <h1 class="titulo text-primary">Mantenimiento de Herramientas</h1>
 
@@ -108,10 +108,10 @@
                     <td th:text="${herramienta.estado}"></td>
                     <td th:text="${herramienta.observaciones}"></td>
                     <td>
-                        <form th:action="@{/herramientasRemove}">
+                        <form th:action="@{/herramientasRemove}" method="POST" onsubmit='return confirmarEliminacion()'>
                             <input type="text" class="form-control" th:value="*{herramienta.id}" name="idBorrar"
-                                hidden="true">
-                            <button type="button" class="btn btn-outline-danger">
+                                hidden="true" >
+                            <button type="submit" class="btn btn-outline-danger">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-trash" viewBox="0 0 16 16">
                                     <path
@@ -135,7 +135,6 @@
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
-    <script src="js/menu.js"></script>
 </body>
 
 </html>

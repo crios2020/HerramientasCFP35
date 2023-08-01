@@ -1,11 +1,9 @@
-var menu=`
-<!-- Inicio Menú de navegación -->
- <nav class="navbar navbar-expand-lg bg-primary">
+<!-- menu de navegación -->
+<nav class="navbar navbar-expand-lg bg-primary" th:fragment="menu">
     <div class="container-fluid">
         <a class="navbar-brand text-info" href="./">Herramientas</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -14,16 +12,13 @@ var menu=`
                     <a class="nav-link text-light" aria-current="page" href="./">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" aria-current="page"
-                        href="herramientas">Herramientas</a>
+                    <a class="nav-link text-light" aria-current="page" href="herramientas">Herramientas</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" aria-current="page"
-                        href="socios">Socios</a>
+                    <a class="nav-link text-light" aria-current="page" href="socios">Socios</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" aria-current="page"
-                        href="prestamos">Préstamos</a>
+                    <a class="nav-link text-light" aria-current="page" href="prestamos">Préstamos</a>
                 </li>
             </ul>
 
@@ -45,6 +40,3 @@ var menu=`
     </div>
 </nav>
 <!-- Fin Menú de navegación -->
-`
-
-document.getElementById('menuPrincipal').innerHTML=menu

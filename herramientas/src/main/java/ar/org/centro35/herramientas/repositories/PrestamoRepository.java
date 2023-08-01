@@ -109,4 +109,16 @@ public class PrestamoRepository {
         }
         return prestamo; 
     }
+
+    public int getCantidadPrestamos(int id_herramienta){
+        try (ResultSet rs=conn
+                .createStatement()
+                .executeQuery(
+                    "select count(*) cantidad from prestamos where id_herramienta="+id_herramienta)) {
+                    if(rs.next()) return rs.getInt("cantidad");
+        }catch (Exception e) {
+            System.out.println(e);
+        }
+        return 0;
+    }
 }

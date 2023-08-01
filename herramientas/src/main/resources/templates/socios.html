@@ -15,15 +15,81 @@
     <div class="container-lg bg-primary-subtle border border-primary-subtle rounded-3">
 
         <!-- menu de navegación -->
-        <div id="menuPrincipal"></div>
+        <div th:insert="menu::menu"></div>
         
         <h1 class="titulo text-primary">Mantenimiento de Socios</h1>
+
+         <!-- Formulario Alta Herramienta-->
+         <form th:object="${herramienta}" th:action="@{/herramientasSave}" method="post">
+            <div class="mb-3 row">
+                <div class="mb-3 row">
+                    <label for="codigo_barras" class="col-sm-2 col-form-label text-primary">Código de barras</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control text-primary" id="codigo_barras"
+                            th:field="*{codigo_barras}" maxlength="13">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="marca" class="col-sm-2 col-form-label text-primary">Marca</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control text-primary" id="marca" th:field="*{marca}"
+                            minlength="2" maxlength="30">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="herramientaTipo" class="col-sm-2 col-form-label text-primary">Tipo Herramienta</label>
+                    <div class="col-sm-10">
+                        <select class="form-select text-primary" aria-label="Default select example"
+                            id="herramientaTipo" th:field="*{tipo}">
+                            <option th:each="tipo : ${tipos}" th:value="${tipo}" th:text="${tipo}"></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="descripcion" class="col-sm-2 col-form-label text-primary">Descripción</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control text-primary" id="descripcion" th:field="*{descripcion}"
+                            minlength="8" maxlength="255">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="herramientaEstado" class="col-sm-2 col-form-label text-primary">Herramienta
+                        Estado</label>
+                    <div class="col-sm-10">
+                        <select class="form-select text-primary" aria-label="Default select example"
+                            id="herramientaEstado" th:field="*{estado}">
+                            <option th:each="estado : ${estados}" th:value="${estado}" th:text="${estado}"></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="observaciones" class="col-sm-2 col-form-label text-primary">Observaciones</label>
+                    <div class="col-sm-10">
+                        <textarea class="form-control text-primary" id="observaciones" th:field="*{observaciones}"
+                            maxlength="255" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <button type="reset" class="btn btn-danger col-sm-3">Limpiar</button>
+                    <button type="submit" class="btn btn-primary col-sm-3">Guardar</button>
+                </div>
+                <div class="mb-3 row">
+                    <label for="info" class="col-sm-2 col-form-label text-primary">Información</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control text-primary" id="info" name="info"
+                            th:value="${mensajeHerramienta}" readonly>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <!-- Fin Formulario Alta Herramienta-->
+
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
     crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
-    <script src="js/menu.js"></script>
 </body>
 </html>

@@ -11,11 +11,13 @@ import ar.org.centro35.herramientas.entities.Herramienta;
 import ar.org.centro35.herramientas.enums.HerramientaEstado;
 import ar.org.centro35.herramientas.enums.HerramientaTipo;
 import ar.org.centro35.herramientas.repositories.HerramientaRepository;
+import ar.org.centro35.herramientas.repositories.PrestamoRepository;
 
 @Controller
 public class WebControllerHerramientas {
 
     private HerramientaRepository hr=new HerramientaRepository(); 
+    private PrestamoRepository pr=new PrestamoRepository();
     private String mensajeHerramienta = "Ingrese una nueva herramienta!";
 
     @GetMapping("/herramientas")
@@ -25,10 +27,10 @@ public class WebControllerHerramientas {
         model.addAttribute("mensajeHerramienta", mensajeHerramienta);
         model.addAttribute("herramienta", new Herramienta());
         //model.addAttribute("all", hr.getAll());
-        System.out.println("*********************************************************************************");
-        System.out.println(buscar);
-        System.out.println(buscar.length());
-        System.out.println("*********************************************************************************");
+        // System.out.println("*********************************************************************************");
+        // System.out.println(buscar);
+        // System.out.println(buscar.length());
+        // System.out.println("*********************************************************************************");
         model.addAttribute("likeDescripcion", hr.getLikeDescripcion(buscar));
         return "herramientas";
     }
@@ -56,7 +58,17 @@ public class WebControllerHerramientas {
     }
 
     @PostMapping("herramientasRemove")
-    public String herramientasRemove(){
+    public String herramientasRemove(@RequestParam(name="idBorrar", defaultValue = "0", required = false) int idBorrar){
+        // System.out.println("*************************************************************");
+        // System.out.println(idBorrar);
+        // System.out.println("*************************************************************");
+        if(pr.getCantidadPrestamos(idBorrar)==0){
+            hr.remove(hr.getById(idBorrar)); 
+            mensajeHerramienta = "Se borro la herramienta id: "+idBorrar+"!";   
+        }else{
+            mensajeHerramienta = "No se pudo borrar la herramienta id: "+idBorrar+", por que tiene prestamos activos!";
+        }
+        
         return "redirect:herramientas";     
     }
 }
