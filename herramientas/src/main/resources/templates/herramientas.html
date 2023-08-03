@@ -23,22 +23,22 @@
         <form th:object="${herramienta}" th:action="@{/herramientasSave}" method="post">
             <div class="mb-3 row">
                 <div class="mb-3 row">
-                    <label for="codigo_barras" class="col-sm-2 col-form-label text-primary">Código de barras</label>
-                    <div class="col-sm-10">
+                    <label for="codigo_barras" class="col-sm-3 col-form-label text-primary">Código de barras</label>
+                    <div class="col-sm-9">
                         <input type="text" class="form-control text-primary" id="codigo_barras"
                             th:field="*{codigo_barras}" maxlength="13">
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="marca" class="col-sm-2 col-form-label text-primary">Marca</label>
-                    <div class="col-sm-10">
+                    <label for="marca" class="col-sm-3 col-form-label text-primary">Marca</label>
+                    <div class="col-sm-9">
                         <input type="text" class="form-control text-primary" id="marca" th:field="*{marca}"
                             minlength="2" maxlength="30">
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="herramientaTipo" class="col-sm-2 col-form-label text-primary">Tipo Herramienta</label>
-                    <div class="col-sm-10">
+                    <label for="herramientaTipo" class="col-sm-3 col-form-label text-primary">Tipo Herramienta</label>
+                    <div class="col-sm-9">
                         <select class="form-select text-primary" aria-label="Default select example"
                             id="herramientaTipo" th:field="*{tipo}">
                             <option th:each="tipo : ${tipos}" th:value="${tipo}" th:text="${tipo}"></option>
@@ -46,16 +46,16 @@
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="descripcion" class="col-sm-2 col-form-label text-primary">Descripción</label>
-                    <div class="col-sm-10">
+                    <label for="descripcion" class="col-sm-3 col-form-label text-primary">Descripción</label>
+                    <div class="col-sm-9">
                         <input type="text" class="form-control text-primary" id="descripcion" th:field="*{descripcion}"
                             minlength="8" maxlength="255">
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="herramientaEstado" class="col-sm-2 col-form-label text-primary">Herramienta
+                    <label for="herramientaEstado" class="col-sm-3 col-form-label text-primary">Herramienta
                         Estado</label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-9">
                         <select class="form-select text-primary" aria-label="Default select example"
                             id="herramientaEstado" th:field="*{estado}">
                             <option th:each="estado : ${estados}" th:value="${estado}" th:text="${estado}"></option>
@@ -63,8 +63,8 @@
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="observaciones" class="col-sm-2 col-form-label text-primary">Observaciones</label>
-                    <div class="col-sm-10">
+                    <label for="observaciones" class="col-sm-3 col-form-label text-primary">Observaciones</label>
+                    <div class="col-sm-9">
                         <textarea class="form-control text-primary" id="observaciones" th:field="*{observaciones}"
                             maxlength="255" rows="3"></textarea>
                     </div>
