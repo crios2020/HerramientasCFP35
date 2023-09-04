@@ -41,7 +41,7 @@ public class WebControllerHerramientas {
         // System.out.println(herramienta);
         // System.out.println("----------------------------------------------------");
         try {
-            if(herramienta.getCodigo_barras().length()!=13) herramienta.setCodigo_barras(null);
+            if(herramienta.getCodigo_articulo().length()!=13) herramienta.setCodigo_articulo(null);
             hr.save(herramienta);
             if(herramienta.getId()>0){
                 mensajeHerramienta="Se guardo la herramienta id:"+herramienta.getId();

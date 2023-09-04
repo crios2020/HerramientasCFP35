@@ -23,10 +23,10 @@
         <form th:object="${herramienta}" th:action="@{/herramientasSave}" method="post">
             <div class="mb-3 row">
                 <div class="mb-3 row">
-                    <label for="codigo_barras" class="col-sm-3 col-form-label text-primary">Código de barras</label>
+                    <label for="codigo_articulo" class="col-sm-3 col-form-label text-primary">Código de Árticulo</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control text-primary" id="codigo_barras"
-                            th:field="*{codigo_barras}" maxlength="13">
+                        <input type="text" class="form-control text-primary" id="codigo_articulo"
+                            th:field="*{codigo_articulo}" maxlength="13">
                     </div>
                 </div>
                 <div class="mb-3 row">
@@ -101,7 +101,7 @@
             <tbody>
                 <tr th:each="herramienta : ${likeDescripcion}">
                     <th scope="row" th:text="${herramienta.id}"></th>
-                    <td th:text="${herramienta.codigo_barras}"></td>
+                    <td th:text="${herramienta.codigo_articulo}"></td>
                     <td th:text="${herramienta.marca}"></td>
                     <td th:text="${herramienta.tipo}"></td>
                     <td th:text="${herramienta.descripcion}"></td>

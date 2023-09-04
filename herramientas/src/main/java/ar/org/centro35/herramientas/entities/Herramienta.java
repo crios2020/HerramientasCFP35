@@ -6,7 +6,7 @@ import ar.org.centro35.herramientas.enums.HerramientaTipo;
 public class Herramienta {
 
     private int id;
-    private String codigo_barras;
+    private String codigo_articulo;
     private String marca;
     private HerramientaTipo tipo;
     private String descripcion;
@@ -25,9 +25,9 @@ public class Herramienta {
         this.observaciones = observaciones;
     }
 
-    public Herramienta(String codigo_barras, String marca, HerramientaTipo tipo, String descripcion,
+    public Herramienta(String codigo_articulo, String marca, HerramientaTipo tipo, String descripcion,
             HerramientaEstado estado, String observaciones) {
-        this.codigo_barras = codigo_barras;
+        this.codigo_articulo = codigo_articulo;
         this.marca = marca;
         this.tipo = tipo;
         this.descripcion = descripcion;
@@ -35,10 +35,10 @@ public class Herramienta {
         this.observaciones = observaciones;
     }
 
-    public Herramienta(int id, String codigo_barras, String marca, HerramientaTipo tipo, String descripcion,
+    public Herramienta(int id, String codigo_articulo, String marca, HerramientaTipo tipo, String descripcion,
             HerramientaEstado estado, String observaciones) {
         this.id = id;
-        this.codigo_barras = codigo_barras;
+        this.codigo_articulo = codigo_articulo;
         this.marca = marca;
         this.tipo = tipo;
         this.descripcion = descripcion;
@@ -48,7 +48,7 @@ public class Herramienta {
 
     @Override
     public String toString() {
-        return "Herramienta [id=" + id + ", codigo_barras=" + codigo_barras + ", marca=" + marca + ", tipo=" + tipo
+        return "Herramienta [id=" + id + ", codigo_articulo=" + codigo_articulo + ", marca=" + marca + ", tipo=" + tipo
                 + ", descripcion=" + descripcion + ", estado=" + estado + ", observaciones=" + observaciones + "]";
     }
 
@@ -60,12 +60,12 @@ public class Herramienta {
         this.id = id;
     }
 
-    public String getCodigo_barras() {
-        return codigo_barras;
+    public String getCodigo_articulo() {
+        return codigo_articulo;
     }
 
-    public void setCodigo_barras(String codigo_barras) {
-        this.codigo_barras = codigo_barras;
+    public void setCodigo_articulo(String codigo_articulo) {
+        this.codigo_articulo = codigo_articulo;
     }
 
     public String getMarca() {

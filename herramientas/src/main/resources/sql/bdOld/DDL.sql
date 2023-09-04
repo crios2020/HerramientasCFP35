@@ -24,7 +24,7 @@ create table socios(
 
 create table herramientas(
 	id int auto_increment primary key,
-    codigo_articulo char(4),
+    codigo_barras char(13) check (length(codigo_barras) = 13 or codigo_barras is null),
     marca varchar(30) not null check (length(marca) >= 2),
     tipo enum('MANUAL','ELECTRICA','MEDICION') not null,
     descripcion varchar(255) not null  check (length(descripcion) >= 8),
@@ -46,6 +46,6 @@ create table prestamos(
     unique (id_herramienta, id_socio, fecha_prestamo)
 );
 
-show tables;
+
 
 

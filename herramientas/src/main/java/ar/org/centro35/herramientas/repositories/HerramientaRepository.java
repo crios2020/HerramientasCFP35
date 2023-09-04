@@ -17,10 +17,10 @@ public class HerramientaRepository {
     public void save(Herramienta herramienta){
         if(herramienta==null) return;
         try (PreparedStatement ps=conn.prepareStatement(
-                "insert into herramientas (codigo_barras,marca,tipo,descripcion,estado,observaciones) values (?,?,?,?,?,?)", 
+                "insert into herramientas (codigo_articulo,marca,tipo,descripcion,estado,observaciones) values (?,?,?,?,?,?)", 
                 PreparedStatement.RETURN_GENERATED_KEYS
             )){
-                ps.setString(1, herramienta.getCodigo_barras());
+                ps.setString(1, herramienta.getCodigo_articulo());
                 ps.setString(2, herramienta.getMarca());
                 ps.setString(3, herramienta.getTipo().toString());
                 ps.setString(4, herramienta.getDescripcion());
@@ -50,7 +50,7 @@ public class HerramientaRepository {
             while(rs.next()){
                 list.add(new Herramienta(
                                             rs.getInt("id"), 
-                                            rs.getString("codigo_barras"), 
+                                            rs.getString("codigo_articulo"), 
                                             rs.getString("marca"), 
                                             HerramientaTipo.valueOf(rs.getString("tipo")), 
                                             rs.getString("descripcion"), 
@@ -70,7 +70,7 @@ public class HerramientaRepository {
             while(rs.next()){
                 list.add(new Herramienta(
                                             rs.getInt("id"), 
-                                            rs.getString("codigo_barras"), 
+                                            rs.getString("codigo_articulo"), 
                                             rs.getString("marca"), 
                                             HerramientaTipo.valueOf(rs.getString("tipo")), 
                                             rs.getString("descripcion"), 
@@ -90,7 +90,7 @@ public class HerramientaRepository {
             while(rs.next()){
                 list.add(new Herramienta(
                                             rs.getInt("id"), 
-                                            rs.getString("codigo_barras"), 
+                                            rs.getString("codigo_articulo"), 
                                             rs.getString("marca"), 
                                             HerramientaTipo.valueOf(rs.getString("tipo")), 
                                             rs.getString("descripcion"), 
@@ -110,7 +110,7 @@ public class HerramientaRepository {
             if(rs.next()){
                 herramienta=new Herramienta(
                                             rs.getInt("id"), 
-                                            rs.getString("codigo_barras"), 
+                                            rs.getString("codigo_articulo"), 
                                             rs.getString("marca"), 
                                             HerramientaTipo.valueOf(rs.getString("tipo")), 
                                             rs.getString("descripcion"), 
