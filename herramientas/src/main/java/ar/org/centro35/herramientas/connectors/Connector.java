@@ -3,7 +3,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 public class Connector {
 
-    // Localhost 
+    // Localhost   
     private static String url="jdbc:mariadb://localhost:3306/herramientasCFP35";
     private static String user="root";
     private static String pass="";
@@ -14,7 +14,13 @@ public class Connector {
     // private static String pass="basegeneral";
 
     private static Connection conn=null;
+
+    public static String getUrl() {
+        return url;
+    }
+
     private Connector(){}
+
     public synchronized static Connection getConnection(){
         try {
             if(conn==null || conn.isClosed()){
@@ -25,4 +31,5 @@ public class Connector {
         }
         return conn;
     }
+
 }

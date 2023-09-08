@@ -4,7 +4,7 @@
 
 use herramientasCFP35;
 
--- Lista de registros cátalogo inicial
+-- Lista de registros cátalogo inicial + datos de prueba
 
 insert into herramientas (	codigo_articulo	,	marca	,	tipo	,	descripcion	,	estado	) values 
 (	6338	,	'BREMEN'	,	'MANUAL'	,'ALIC.C.OBLICUO BREMEN PROFESIONAL 6"',	'BUENA'	),
@@ -463,5 +463,69 @@ insert into herramientas (	codigo_articulo	,	marca	,	tipo	,	descripcion	,	estado
 (	6623	,	'BREMEN'	,	'MANUAL'	,'EXHIBIDOR BREMEN® PERFORADO CHICO (15 Ganchos)',	'BUENA'	),
 (	6681	,	'BREMEN'	,	'MANUAL'	,'EXHIBIDOR BREMENO PERFORADO GRANDE (15 Ganchos)',	'BUENA'	),
 (	6623	,	'BREMEN'	,	'MANUAL'	,'EXHIBIDOR BREMEN® PERFORADO CHICO (15 Ganchos)',	'BUENA'	);
+
+
+INSERT INTO socios (id, nombre, apellido, tipo_documento, numero_documento, direccion, celular, telefono_linea, email, comentarios) VALUES
+(1, 'Juan', 'Pérez', 'DNI', '12345678', 'Av. Corrientes 1234', '1155556666', '0114444444', 'jperez@gmail.com', NULL),
+(2, 'Ana', 'García', 'LC', '87654321', 'Calle San Martín 432', '1166667777', NULL, 'agarcia@hotmail.com', NULL),
+(3, 'Luis', 'Fernández', 'DNI', '23456789', 'Av. Juan B. Justo 5678', '1144443333', '0113333333', 'lfernandez@yahoo.com', NULL),
+(4, 'María', 'Rodríguez', 'LE', '34567890', 'Calle Córdoba 123', '1155554444', NULL, 'mrodriguez@outlook.com', NULL),
+(5, 'Carlos', 'González', 'PASS', 'AB123456', 'Av. Rivadavia 9876', '1166665555', NULL, 'cgonzalez@gmail.com', NULL),
+(6, 'Sofía', 'Acosta', 'DNI', '45678901', 'Calle Florida 432', '1144442222', '0112222222', 'sacosta@hotmail.com', NULL),
+(7, 'Juan Pablo', 'Gómez', 'LC', '56789012', 'Av. Santa Fe 3456', '1155551111', NULL, 'jpgomez@yahoo.com.ar', NULL),
+(8, 'Ana María', 'Díaz', 'DNI', '67890123', 'Calle Lavalle 567', '1166668888', NULL, 'amdiaz@gmail.com', NULL),
+(9, 'Martín', 'Vargas', 'LE', '78901234', 'Av. Cabildo 9012', '1144447777', '0117777777', 'mvargas@hotmail.com', NULL),
+(10, 'Valentina', 'Romero', 'DNI', '89012345', 'Calle Corrientes 5678', '1155550000', NULL, 'vromero@outlook.com', NULL),
+(11, 'Agustín', 'Álvarez', 'PASS', 'CD987654', 'Av. Callao 1234', '1166663333', NULL, 'aalvarez@yahoo.com', NULL),
+(12, 'Lucía', 'Torres', 'DNI', '01234567', 'Calle Sarmiento 432', '1144444444', '0115555555', 'ltorres@gmail.com', NULL),
+(13, 'Santiago', 'Castro', 'LC', '23456789', 'Av. Pueyrredón 5678', '1155552222', NULL, 'scastro@hotmail.com', NULL),
+(14, 'Florencia', 'Flores', 'DNI', '34567890', 'Calle Belgrano 123', '1166669999', NULL, 'fflores@outlook.com', NULL),
+(15, 'José', 'Sánchez', 'LE', '45678901', 'Av. Corrientes 6789', '1144441111', '0118888888', 'jsanchez@yahoo.com.ar', NULL),
+(16, 'Camila', 'Benítez', 'DNI', '56789012', 'Calle Florida 876', '1155557777', NULL, 'cbenitez@gmail.com', NULL),
+(17, 'Nicolás', 'Acuña', 'LC', '67890123', 'Av. Juan B. Justo 9012', '1166662222', NULL, 'nacuna@hotmail.com', NULL),
+(18, 'Victoria', 'Gutiérrez', 'DNI', '78901234', 'Calle Lavalle 901', '1144446666', '0119999999', 'vgutierrez@yahoo.com', NULL),
+(19, 'Sebastián', 'Ríos', 'PASS', 'EF123456', 'Av. Santa Fe 6789', '1155553333', NULL, 'srios@outlook.com', NULL),
+(20, 'Mariana', 'Mendoza', 'DNI', '90123456', 'Calle Córdoba 567', '1166664444', NULL, 'mmendoza@gmail.com', NULL);
+
+INSERT INTO socios (id, nombre, apellido, tipo_documento, numero_documento, direccion, celular, telefono_linea, email, comentarios) VALUES
+(21, 'Mikhail', 'Ivanov', 'PASS', 'AB234567', 'ul. Tverskaya 1, Moscú, Rusia', '79991234567', NULL, 'mivanov@gmail.com', NULL),
+(22, 'Katarzyna', 'Nowak', 'DNI', '34567891', 'ul. Nowowiejska 1, Varsovia, Polonia', '48501123456', NULL, 'knowak@yahoo.com', NULL),
+(23, 'Alexandru', 'Popescu', 'CI', '1234567', 'Str. Lipscani 1, Bucarest, Rumania', '40721234567', NULL, 'apopescu@hotmail.com', NULL),
+(24, 'Olga', 'Kuznetsova', 'PASS', 'CD345678', 'ул. Арбат 1, Moscú, Rusia', '79161234567', NULL, 'okuznetsova@gmail.com', NULL),
+(25, 'Dmitri', 'Petrov', 'DNI', '56789123', 'ul. Krymska 1, Kiev, Ucrania', '380501234567', NULL, 'dpetrov@hotmail.com', NULL);
+
+INSERT INTO socios (id, nombre, apellido, tipo_documento, numero_documento, direccion, celular, telefono_linea, email, comentarios) VALUES
+(26, 'Giuseppe', 'Russo', 'CI', 'AB123456', 'Via Garibaldi 1, Roma, Italia', '393401234567', NULL, 'grusso@gmail.com', NULL),
+(27, 'Sofia', 'Conti', 'PASS', 'CD234567', 'Corso Vittorio Emanuele 1, Milán, Italia', '393401234568', NULL, 'sconti@yahoo.com', NULL),
+(28, 'Luigi', 'Lombardi', 'DNI', '3456789', 'Piazza del Popolo 1, Florencia, Italia', '393401234569', NULL, 'llombardi@hotmail.com', NULL),
+(29, 'Francesca', 'Romano', 'PASS', 'EF345678', 'Via del Corso 1, Nápoles, Italia', '393401234570', NULL, 'fromano@gmail.com', NULL),
+(30, 'Alessandro', 'Moretti', 'CI', '12345678', 'Piazza Navona 1, Venecia, Italia', '393401234571', NULL, 'amoretti@hotmail.com', NULL);
+
+
+INSERT INTO prestamos (id_herramienta, id_socio, tipo_prestamo_hs, fecha_prestamo, fecha_devolucion, estado_devolucion, observaciones) VALUES
+(1, 11, 'h24', '2023-06-10', '2023-06-11', 'TERMINADO', 'Ninguna'),
+(2, 12, 'h48', '2023-06-05', '2023-06-07', 'TERMINADO', 'Ninguna'),
+(3, 13, 'h72', '2023-06-02', '2023-06-05', 'TERMINADO', 'Ninguna'),
+(4, 14, 'h24', '2023-06-08', '2023-06-09', 'TERMINADO', 'Ninguna'),
+(5, 15, 'h48', '2023-06-01', '2023-06-03', 'TERMINADO', 'Ninguna'),
+(6, 16, 'h72', '2023-06-07', '2023-06-10', 'PENDIENTE', 'Ninguna'),
+(7, 17, 'h24', '2023-06-12', NULL, 'PENDIENTE', 'Ninguna'),
+(8, 18, 'h48', '2023-06-03', NULL, 'PENDIENTE', 'Ninguna'),
+(9, 19, 'h72', '2023-06-06', NULL, 'PENDIENTE', 'Ninguna'),
+(10, 11, 'h24', '2023-06-09', NULL, 'PENDIENTE', 'Ninguna'),
+(11, 10, 'h48', '2023-06-02', NULL, 'PENDIENTE', 'Ninguna'),
+(12, 10, 'h72', '2023-06-04', NULL, 'PENDIENTE', 'Ninguna'),
+(13, 10, 'h24', '2023-06-11', NULL, 'PENDIENTE', 'Ninguna'),
+(14, 14, 'h48', '2023-06-01', NULL, 'PENDIENTE', 'Ninguna'),
+(15, 15, 'h72', '2023-06-03', NULL, 'PENDIENTE', 'Ninguna'),
+(16, 16, 'h24', '2023-06-07', NULL, 'PENDIENTE', 'Ninguna'),
+(17, 17, 'h48', '2023-06-04', NULL, 'PENDIENTE', 'Ninguna'),
+(18, 18, 'h72', '2023-06-10', NULL, 'PENDIENTE', 'Ninguna'),
+(19, 19, 'h24', '2023-06-05', NULL, 'PENDIENTE', 'Ninguna'),
+(22, 1, 'h24', '2023-06-05', NULL, 'PENDIENTE', 'Ninguna'),
+(23, 1, 'h24', '2023-06-05', NULL, 'PENDIENTE', 'Ninguna'),
+(25, 1, 'h24', '2023-06-05', NULL, 'PENDIENTE', 'Ninguna'),
+(20, 22, 'h48', '2023-06-08', NULL, 'PENDIENTE', 'Ninguna');
+
 
 select * from herramientas;
