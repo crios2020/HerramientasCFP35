@@ -5,8 +5,6 @@ import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.List;
 
-import org.springframework.cglib.core.Local;
-
 public class SystemProperties{
     
     public String getSystem(){
@@ -31,6 +29,12 @@ public class SystemProperties{
                     .getID()
                     .replace("_", " ")
                     .replace("/", " ");
+    }
+
+    public String getFechaSQL(){
+        LocalDate ld=LocalDate.now();
+        DecimalFormat df=new DecimalFormat("00");
+        return ld.getYear()+"-"+df.format(ld.getMonthValue())+"-"+df.format(ld.getDayOfMonth());
     }
 
     public String getFecha(){

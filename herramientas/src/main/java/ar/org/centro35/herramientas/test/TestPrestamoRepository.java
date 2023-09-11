@@ -1,9 +1,13 @@
 package ar.org.centro35.herramientas.test;
 
+import java.text.DecimalFormat;
+import java.time.LocalTime;
+
 import ar.org.centro35.herramientas.entities.Prestamo;
 import ar.org.centro35.herramientas.enums.PrestamoEstado;
 import ar.org.centro35.herramientas.enums.PrestamoTipo;
 import ar.org.centro35.herramientas.repositories.PrestamoRepository;
+import ar.org.centro35.herramientas.utils.SystemProperties;
 
 public class TestPrestamoRepository {
     public static void main(String[] args) {
@@ -45,5 +49,13 @@ public class TestPrestamoRepository {
         System.out.println("*******************************************************************");
         System.out.println(pr.getById(5));
 
+        System.out.println("*******************************************************************");
+        System.out.println("* Test Prestamo Repository .update()");
+        System.out.println("*******************************************************************");
+        Prestamo prestamox=pr.getById(22);
+        prestamox.setEstado_devolucion(PrestamoEstado.TERMINADO);
+        prestamox.setFecha_devolucion(new SystemProperties().getFechaSQL());
+        System.out.println(prestamox);
+        pr.update(prestamox);
     }
 }

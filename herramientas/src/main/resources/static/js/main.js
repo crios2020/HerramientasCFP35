@@ -20,3 +20,7 @@ setInterval(ActualizarHora, 1000);
 function confirmarEliminacion() {
     return window.confirm("¿Estás seguro de que deseas eliminar?");
 }
+
+function confirmarDevolucion() {
+    return window.confirm("¿Estás seguro de que deseas devolver?");
+}

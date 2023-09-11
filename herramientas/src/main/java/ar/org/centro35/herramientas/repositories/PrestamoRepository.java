@@ -46,6 +46,28 @@ public class PrestamoRepository {
             System.out.println(e);
         }
     }
+
+    public void update(Prestamo prestamo){
+        if(prestamo==null) return;
+        try (PreparedStatement ps=conn.prepareStatement(
+            "update prestamos set "+
+            "id_herramienta=?, id_socio=?, tipo_prestamo_hs=?, fecha_prestamo=?, fecha_devolucion=?, estado_devolucion=?, observaciones=? "+
+            "where id=?",
+            PreparedStatement.RETURN_GENERATED_KEYS
+        )) {
+            ps.setInt(1, prestamo.getId_herramienta());
+            ps.setInt(2, prestamo.getId_socio());
+            ps.setString(3, prestamo.getTipo_prestamo_hs().toString());
+            ps.setString(4, prestamo.getFecha_prestamo());
+            ps.setString(5, prestamo.getFecha_devolucion());
+            ps.setString(6, prestamo.getEstado_devolucion().toString());
+            ps.setString(7, prestamo.getObservaciones());
+            ps.setInt(8, prestamo.getId());
+            ps.execute();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
     
     public List<Prestamo>getAll(){           //select * from prestamos
         List<Prestamo>list=new ArrayList();

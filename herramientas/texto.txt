@@ -1,0 +1,14 @@
+Curso de Java!
+Hoy es Lunes!!!
+Lunes.
+Martes.
+Miércoles.
+Jueves.
+Viernes.
+Sábado.
+Lunes.
+Lunes.
+Primavera
+Verano
+Otoño
+Invierno
