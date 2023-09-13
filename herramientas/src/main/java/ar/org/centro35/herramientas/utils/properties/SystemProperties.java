@@ -1,4 +1,4 @@
-package ar.org.centro35.herramientas.utils;
+package ar.org.centro35.herramientas.utils.properties;
 
 import java.text.DecimalFormat;
 import java.time.LocalDate;

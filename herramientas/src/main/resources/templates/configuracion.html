@@ -65,21 +65,28 @@
                             readonly>
                     </div>
                 </div>
-                <div class="mb-3 row">
-                    <button type="submit" class="btn btn-primary col-sm-3 m-1">Descargar Herramientas</button>
-                    <button type="submit" class="btn btn-primary col-sm-3 m-1">Descargar Socios</button>
-                    <button type="submit" class="btn btn-primary col-sm-3 m-1">Descargar Prestamos</button>
-                </div>
-                <div class="mb-3 row">
-                    <label for="info" class="col-sm-2 col-form-label text-primary">Información</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control text-primary" id="info" name="info"
-                            th:value="${mensajeConfiguracion}" readonly>
-                    </div>
-                </div>
-            </div>
         </form>
-        <!-- Fin Formulario Configuración sistema-->
+        <div class="mb-3 row">
+            <form th:action="@{/herramientasBackup}" method="get" class="col-sm-3">
+                <button type="submit" class="btn btn-primary col-sm-9 m-1 p-1">Descargar Herramientas</button>
+            </form>
+            <form th:action="@{/sociosBackup}" method="get" class="col-sm-3">
+                <button type="submit" class="btn btn-primary col-sm-9 m-1 p-1">Descargar Socios</button>
+            </form>
+            <form th:action="@{/prestamosBackup}" method="get" class="col-sm-3">
+                <button type="submit" class="btn btn-primary col-sm-9 m-1 p-1">Descargar Prestamo</button>
+            </form>
+        </div>
+        <div class="mb-3 row">
+            <label for="info" class="col-sm-2 col-form-label text-primary">Información</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control text-primary" id="info" name="info"
+                    th:value="${mensajeConfiguracion}" readonly>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fin Formulario Configuración sistema-->
 
     </div>
 

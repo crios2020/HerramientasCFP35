@@ -19,7 +19,7 @@ import ar.org.centro35.herramientas.enums.PrestamoTipo;
 import ar.org.centro35.herramientas.repositories.HerramientaRepository;
 import ar.org.centro35.herramientas.repositories.PrestamoRepository;
 import ar.org.centro35.herramientas.repositories.SocioRepository;
-import ar.org.centro35.herramientas.utils.SystemProperties;
+import ar.org.centro35.herramientas.utils.properties.SystemProperties;
 
 @Controller
 public class WebControllerPrestamos {

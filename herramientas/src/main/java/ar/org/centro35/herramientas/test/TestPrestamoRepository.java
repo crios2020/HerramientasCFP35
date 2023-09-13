@@ -7,7 +7,7 @@ import ar.org.centro35.herramientas.entities.Prestamo;
 import ar.org.centro35.herramientas.enums.PrestamoEstado;
 import ar.org.centro35.herramientas.enums.PrestamoTipo;
 import ar.org.centro35.herramientas.repositories.PrestamoRepository;
-import ar.org.centro35.herramientas.utils.SystemProperties;
+import ar.org.centro35.herramientas.utils.properties.SystemProperties;
 
 public class TestPrestamoRepository {
     public static void main(String[] args) {
