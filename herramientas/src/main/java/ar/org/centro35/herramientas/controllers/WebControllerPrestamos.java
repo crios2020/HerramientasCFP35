@@ -1,5 +1,9 @@
 package ar.org.centro35.herramientas.controllers;
 
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,7 +11,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import ar.org.centro35.herramientas.entities.Herramienta;
 import ar.org.centro35.herramientas.entities.Prestamo;
+import ar.org.centro35.herramientas.entities.Socio;
 import ar.org.centro35.herramientas.enums.PrestamoEstado;
 import ar.org.centro35.herramientas.enums.PrestamoTipo;
 import ar.org.centro35.herramientas.repositories.HerramientaRepository;
@@ -16,7 +22,7 @@ import ar.org.centro35.herramientas.repositories.SocioRepository;
 import ar.org.centro35.herramientas.utils.SystemProperties;
 
 @Controller
-public class WebControllerPrestammos {
+public class WebControllerPrestamos {
 
     private PrestamoRepository pr=new PrestamoRepository();
     private HerramientaRepository hr=new HerramientaRepository();
@@ -26,6 +32,7 @@ public class WebControllerPrestammos {
     @GetMapping("/prestamos")
     public String getPrestamos( @RequestParam(name="buscarDescripcion", defaultValue = "", required = false) String buscarDescripcion, 
                                 @RequestParam(name="buscarSocio", defaultValue = "", required = false) String buscarSocio,
+                                @RequestParam(name="buscar", defaultValue = "", required = false) String buscar,
                                 Model model) {
         model.addAttribute("mensajePrestamo", mensajePrestamo);
         model.addAttribute("herramientas", hr.getAll());
@@ -34,9 +41,20 @@ public class WebControllerPrestammos {
         model.addAttribute("likeApellido", sr.getLikeApellido(buscarSocio));
         model.addAttribute("prestamo", new Prestamo());
         model.addAttribute("tipoPrestamos", PrestamoTipo.values());
-        model.addAttribute("prestamos", pr.getAll());
+        model.addAttribute("prestamos", pr.getPrestamosPendientes());
+        model.addAttribute("prestamosPatron", pr.getPrestamosPendientes(buscar));
         //System.out.println(buscarDescripcion);
         //hr.getLikeDescripcion(buscarDescripcion).forEach(System.out::println);
+        Map<Integer, Herramienta> mapaHerramientas=new LinkedHashMap();
+        hr
+            .getAll()
+            .forEach(h->mapaHerramientas.put(h.getId(), h));
+        model.addAttribute("mapaHerramientas", mapaHerramientas);
+        Map<Integer, Socio> mapaSocios=new LinkedHashMap();
+        sr
+            .getAll()
+            .forEach(s->mapaSocios.put(s.getId(), s));
+        model.addAttribute("mapaSocios", mapaSocios);
         return "prestamos";
     }
 
@@ -68,6 +86,17 @@ public class WebControllerPrestammos {
         prestamox.setEstado_devolucion(PrestamoEstado.TERMINADO);
         prestamox.setFecha_devolucion(new SystemProperties().getFechaSQL());
         pr.update(prestamox);
+        mensajePrestamo = "Se actualizo el prestamo id: "+idDevolver+"!"; 
+        return "redirect:prestamos";     
+    }
+
+    @PostMapping("prestamosRemove")
+    public String prestamosRemove(@RequestParam(name="idBorrar", defaultValue = "0", required = false) int idBorrar){
+        // System.out.println("*************************************************************");
+        // System.out.println(idBorrar);
+        // System.out.println("*************************************************************");
+        pr.remove(pr.getById(idBorrar));
+        mensajePrestamo = "Se borro el prestamo id: "+idBorrar+"!";   
         return "redirect:prestamos";     
     }
 

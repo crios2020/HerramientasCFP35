@@ -48,3 +48,14 @@ SELECT s.nombre, s.apellido, s.numero_documento, COUNT(*) AS num_herramientas_pr
 	JOIN prestamos p ON s.id = p.id_socio
 	JOIN herramientas h ON p.id_herramienta = h.id
 	GROUP BY s.id;
+    
+-- 6 Consultar prestamos pendientes y devoluciones de hoy
+select * from prestamos where estado_devolucion='PENDIENTE' or fecha_devolucion=curdate();
+
+-- 7 Consultar prestamos pendientes y devoluciones de hoy y descripcion like '%patron%' y apellido like '%patron%'
+select p.id, p.id_herramienta, p.id_socio, p.tipo_prestamo_hs, p.fecha_prestamo, p.fecha_devolucion, p.estado_devolucion, p.observaciones
+ from socios s join prestamos p on s.id=p.id_socio
+			join herramientas h on p.id_herramienta=h.id
+            where (s.apellido like '%%' or h.descripcion like '%%') 
+            and (p.estado_devolucion='PENDIENTE' or p.fecha_devolucion=curdate())
+            order by p.id;

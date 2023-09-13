@@ -90,6 +90,55 @@ public class PrestamoRepository {
         return list;
     }
 
+    public List<Prestamo>getPrestamosPendientes(){  //select * from prestamos where estado_devolucion='PENDIENTE' or fecha_devolucion=curdate()
+        List<Prestamo>list=new ArrayList();
+        try (ResultSet rs=conn.createStatement().executeQuery("select * from prestamos where estado_devolucion='PENDIENTE' or fecha_devolucion=curdate()")){
+            while(rs.next()){
+                list.add(new Prestamo(
+                                        rs.getInt("id"), 
+                                        rs.getInt("id_herramienta"), 
+                                        rs.getInt("id_socio"), 
+                                        PrestamoTipo.valueOf(rs.getString("tipo_prestamo_hs")), 
+                                        rs.getString("fecha_prestamo"), 
+                                        rs.getString("fecha_devolucion"), 
+                                        PrestamoEstado.valueOf(rs.getString("estado_devolucion")), 
+                                        rs.getString("observaciones")
+                                    ));
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return list;
+    }
+
+    public List<Prestamo>getPrestamosPendientes(String patron){  
+        List<Prestamo>list=new ArrayList();
+        try (ResultSet rs=conn.createStatement().executeQuery(
+                "select p.id, p.id_herramienta, p.id_socio, p.tipo_prestamo_hs, p.fecha_prestamo, p.fecha_devolucion, p.estado_devolucion, p.observaciones"+
+                    " from socios s join prestamos p on s.id=p.id_socio " + 
+                    "join herramientas h on p.id_herramienta=h.id " + 
+                    "where (s.apellido like '%"+patron+"%' or h.descripcion like '%"+patron+"%')" + 
+                    "and (p.estado_devolucion='PENDIENTE' or p.fecha_devolucion=curdate()) "+
+                    "order by p.id"
+            )){
+            while(rs.next()){
+                list.add(new Prestamo(
+                                        rs.getInt("id"), 
+                                        rs.getInt("id_herramienta"), 
+                                        rs.getInt("id_socio"), 
+                                        PrestamoTipo.valueOf(rs.getString("tipo_prestamo_hs")), 
+                                        rs.getString("fecha_prestamo"), 
+                                        rs.getString("fecha_devolucion"), 
+                                        PrestamoEstado.valueOf(rs.getString("estado_devolucion")), 
+                                        rs.getString("observaciones")
+                                    ));
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return list;
+    }
+
     public List<Prestamo>getByFechaPrestamo(String fecha_prestamo){           //select * from prestamos where fecha_prestamo=fecha_prestamo
         List<Prestamo>list=new ArrayList();
         try (ResultSet rs=conn.createStatement().executeQuery("select * from prestamos where fecha_prestamo='"+fecha_prestamo+"'")){
@@ -137,6 +186,18 @@ public class PrestamoRepository {
                 .createStatement()
                 .executeQuery(
                     "select count(*) cantidad from prestamos where id_herramienta="+id_herramienta)) {
+                    if(rs.next()) return rs.getInt("cantidad");
+        }catch (Exception e) {
+            System.out.println(e);
+        }
+        return 0;
+    }
+
+    public int getCantidadPrestamosSocio(int id_socio){
+        try (ResultSet rs=conn
+                .createStatement()
+                .executeQuery(
+                    "select count(*) cantidad from prestamos where id_socio="+id_socio)) {
                     if(rs.next()) return rs.getInt("cantidad");
         }catch (Exception e) {
             System.out.println(e);

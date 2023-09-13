@@ -9,12 +9,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import ar.org.centro35.herramientas.entities.Socio;
 import ar.org.centro35.herramientas.enums.TipoDocumento;
+import ar.org.centro35.herramientas.repositories.PrestamoRepository;
 import ar.org.centro35.herramientas.repositories.SocioRepository;
 
 @Controller
 public class WebControllerSocios {
     
     private SocioRepository sr=new SocioRepository();
+    private PrestamoRepository pr=new PrestamoRepository();
     private String mensajeSocio = "Ingrese una nuevo Socio!";
 
     @GetMapping("/socios")
@@ -46,4 +48,20 @@ public class WebControllerSocios {
         }
         return "redirect:socios";
     }
+
+    @PostMapping("sociosRemove")
+    public String herramientasRemove(@RequestParam(name="idBorrar", defaultValue = "0", required = false) int idBorrar){
+        // System.out.println("*************************************************************");
+        // System.out.println(idBorrar);
+        // System.out.println("*************************************************************");
+        if(pr.getCantidadPrestamosSocio(idBorrar)==0){
+            sr.remove(sr.getById(idBorrar)); 
+            mensajeSocio = "Se borro el socio id: "+idBorrar+"!";   
+        }else{
+            mensajeSocio = "No se pudo borrar el socio id: "+idBorrar+", por que tiene prestamos activos!";
+        }
+        
+        return "redirect:socios";     
+    }
+
 }
