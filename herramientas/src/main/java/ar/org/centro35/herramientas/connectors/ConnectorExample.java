@@ -1,7 +1,7 @@
 package ar.org.centro35.herramientas.connectors;
 import java.sql.Connection;
 import java.sql.DriverManager;
-public class Connector {
+public class ConnectorExample {
 
     // Localhost   
     private static String url="jdbc:mariadb://xxx:3306/xxx";
@@ -14,7 +14,7 @@ public class Connector {
         return url;
     }
 
-    private Connector(){}
+    private ConnectorExample(){}
 
     public synchronized static Connection getConnection(){
         try {
