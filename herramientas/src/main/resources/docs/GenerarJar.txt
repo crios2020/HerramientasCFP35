@@ -1,1 +1,3 @@
 https://chuidiang.org/index.php?title=Crear_un_Jar_autocontenido_con_spring_boot_y_maven
+
+sh mvnw package
