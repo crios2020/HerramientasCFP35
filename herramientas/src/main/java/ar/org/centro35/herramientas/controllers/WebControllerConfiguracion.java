@@ -4,6 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import ar.org.centro35.herramientas.connectors.Connector;
+import ar.org.centro35.herramientas.entities.Herramienta;
+import ar.org.centro35.herramientas.entities.Prestamo;
 import ar.org.centro35.herramientas.entities.Socio;
 import ar.org.centro35.herramientas.repositories.HerramientaRepository;
 import ar.org.centro35.herramientas.repositories.PrestamoRepository;
@@ -14,14 +16,14 @@ import ar.org.centro35.herramientas.utils.properties.SystemProperties;
 @Controller
 public class WebControllerConfiguracion {
 
-    private PrestamoRepository pr=new PrestamoRepository();
-    private HerramientaRepository hr=new HerramientaRepository();
-    private SocioRepository sr=new SocioRepository();
+    private PrestamoRepository pr = new PrestamoRepository();
+    private HerramientaRepository hr = new HerramientaRepository();
+    private SocioRepository sr = new SocioRepository();
     private String mensajeConfiguracion = "Es posible descargar un backup en formato .cvs";
 
     @GetMapping("/configuracion")
-    public String getConfiguracion(Model model){
-        SystemProperties sp=new SystemProperties();
+    public String getConfiguracion(Model model) {
+        SystemProperties sp = new SystemProperties();
         model.addAttribute("mensajeConfiguracion", mensajeConfiguracion);
         model.addAttribute("system", sp.getSystem());
         model.addAttribute("java", sp.getJava());
@@ -34,26 +36,75 @@ public class WebControllerConfiguracion {
 
     @GetMapping("/sociosBackup")
     public String sociosBackup() {
-        String file="socios-"+new SystemProperties().getFechaSQL()+".csv";
-        FileText fText=new FileText(file);
+        String file = "socios-" + new SystemProperties().getFechaSQL() + ".csv";
+        FileText fText = new FileText(file);
         fText.clear();
-        fText.addLine("id,nombre,apellido,tipo_documento,numero_documento,dirección,celular,teléfono_linea,email,comentarios");
-        for(Socio socio: sr.getAll()){
-            fText.addLine(  
-                socio.getId()+","+
-                ((socio.getNombre()==null)?",":socio.getNombre().replace(",", "-")+",")+
-                ((socio.getApellido()==null)?",":socio.getApellido().replace(",", "-")+",")+
-                socio.getTipo_documento()+","+
-                ((socio.getNumero_documento()==null)?",":socio.getNumero_documento().replace(",", "-")+",")+
-                ((socio.getDireccion()==null)?",":socio.getDireccion().replace(",", "-")+",")+
-                ((socio.getCelular()==null)?",":socio.getCelular().replace(",", "-")+",")+
-                ((socio.getTelefono_linea()==null)?",":socio.getTelefono_linea().replace(",", "-")+",")+
-                ((socio.getEmail()==null)?",":socio.getEmail().replace(",", "-")+",")+
-                ((socio.getComentarios()==null)?",":socio.getComentarios().replace(",", "-"))
-            );
+        fText.addLine(
+                "id,nombre,apellido,tipo_documento,numero_documento,dirección,celular,teléfono_linea,email,comentarios");
+        for (Socio socio : sr.getAll()) {
+            fText.addLine(
+                    socio.getId() + "," +
+                            ((socio.getNombre() == null) ? "," : socio.getNombre().replace(",", "-") + ",") +
+                            ((socio.getApellido() == null) ? "," : socio.getApellido().replace(",", "-") + ",") +
+                            socio.getTipo_documento() + "," +
+                            ((socio.getNumero_documento() == null) ? ","
+                                    : socio.getNumero_documento().replace(",", "-") + ",")
+                            +
+                            ((socio.getDireccion() == null) ? "," : socio.getDireccion().replace(",", "-") + ",") +
+                            ((socio.getCelular() == null) ? "," : socio.getCelular().replace(",", "-") + ",") +
+                            ((socio.getTelefono_linea() == null) ? ","
+                                    : socio.getTelefono_linea().replace(",", "-") + ",")
+                            +
+                            ((socio.getEmail() == null) ? "," : socio.getEmail().replace(",", "-") + ",") +
+                            ((socio.getComentarios() == null) ? "," : socio.getComentarios().replace(",", "-")));
         }
-        mensajeConfiguracion="Se realizo el backup de entidad socios, archivo: "+file;
+        mensajeConfiguracion = "Se realizo el backup de entidad socios, archivo: " + file;
         return "redirect:configuracion";
     }
 
+    @GetMapping("/herramientasBackup")
+    public String herramientasBackup() {
+        String file = "herramientas-" + new SystemProperties().getFechaSQL() + ".csv";
+        FileText fText = new FileText(file);
+        fText.clear();
+        fText.addLine("id,codigo_articulo,marca,tipo,descripcion,estado,observaciones");
+        for (Herramienta herramienta : hr.getAll()) {
+            fText.addLine(
+                    herramienta.getId() + "," +
+                            ((herramienta.getCodigo_articulo() == null) ? ","
+                                    : herramienta.getCodigo_articulo().replace(",", "-") + ",")
+                            +
+                            ((herramienta.getMarca() == null) ? "," : herramienta.getMarca().replace(",", "-") + ",") +
+                            herramienta.getTipo() + "," +
+                            ((herramienta.getDescripcion() == null) ? ","
+                                    : herramienta.getDescripcion().replace(",", "-") + ",")
+                            +
+                            herramienta.getEstado() + "," +
+                            ((herramienta.getObservaciones() == null) ? ","
+                                    : herramienta.getObservaciones().replace(",", "-")));
+        }
+        mensajeConfiguracion = "Se realizo el backup de entidad herramientas, archivo: " + file;
+        return "redirect:configuracion";
+    }
+
+    @GetMapping("/prestamosBackup")
+    public String prestamosBackup() {
+        String file = "prestamos-" + new SystemProperties().getFechaSQL() + ".csv";
+        FileText fText = new FileText(file);
+        fText.clear();
+        fText.addLine("id,id_herramienta,id_socio,tipo_prestamo_hs,dfecha_prestamo,fecha_devolucion,estado_devolucion,observaciones");
+        for (Prestamo prestamo : pr.getAll()) {
+            fText.addLine(
+                    prestamo.getId() + "," +
+                    prestamo.getId_herramienta() + "," +
+                    prestamo.getId_socio() + "," +
+                    prestamo.getTipo_prestamo_hs() + "," +
+                    prestamo.getFecha_prestamo() + "," +
+                    prestamo.getFecha_devolucion() + "," +
+                    prestamo.getEstado_devolucion() + "," +
+                    ((prestamo.getObservaciones() == null) ? ",":prestamo.getObservaciones().replace(",", "-")));
+        }
+        mensajeConfiguracion = "Se realizo el backup de entidad prestamos, archivo: " + file;
+        return "redirect:configuracion";
+    }
 }
