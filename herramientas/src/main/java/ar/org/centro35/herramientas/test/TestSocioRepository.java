@@ -45,12 +45,6 @@ public class TestSocioRepository {
         System.out.println("* Test Socios Repository .getById()");
         System.out.println("*******************************************************************");
         System.out.println(sr.getById(12));
-                        
-        
-        /*
 
-
-        System.out.println(herramienta);
-        */
     }
 }

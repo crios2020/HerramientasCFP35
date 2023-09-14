@@ -3,6 +3,7 @@ import java.sql.ResultSet;
 import java.time.Duration;
 import java.time.LocalTime;
 import ar.org.centro35.herramientas.connectors.Connector;
+
 public class TestConnection {
     public static final String ANSI_BLACK = "\u001B[30m";
     public static final String ANSI_RED = "\u001B[31m";

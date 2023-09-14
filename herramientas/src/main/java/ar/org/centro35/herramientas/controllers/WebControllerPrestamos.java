@@ -1,7 +1,6 @@
 package ar.org.centro35.herramientas.controllers;
 
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Controller;
@@ -43,8 +42,6 @@ public class WebControllerPrestamos {
         model.addAttribute("tipoPrestamos", PrestamoTipo.values());
         model.addAttribute("prestamos", pr.getPrestamosPendientes());
         model.addAttribute("prestamosPatron", pr.getPrestamosPendientes(buscar));
-        //System.out.println(buscarDescripcion);
-        //hr.getLikeDescripcion(buscarDescripcion).forEach(System.out::println);
         Map<Integer, Herramienta> mapaHerramientas=new LinkedHashMap();
         hr
             .getAll()
@@ -92,9 +89,6 @@ public class WebControllerPrestamos {
 
     @PostMapping("prestamosRemove")
     public String prestamosRemove(@RequestParam(name="idBorrar", defaultValue = "0", required = false) int idBorrar){
-        // System.out.println("*************************************************************");
-        // System.out.println(idBorrar);
-        // System.out.println("*************************************************************");
         pr.remove(pr.getById(idBorrar));
         mensajePrestamo = "Se borro el prestamo id: "+idBorrar+"!";   
         return "redirect:prestamos";     

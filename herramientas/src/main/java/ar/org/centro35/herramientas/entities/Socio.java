@@ -132,6 +132,5 @@ public class Socio {
     public void setComentarios(String comentarios) {
         this.comentarios = comentarios;
     }
-  
 
 }

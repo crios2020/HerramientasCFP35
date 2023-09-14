@@ -2,7 +2,6 @@ package ar.org.centro35.herramientas;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
 import ar.org.centro35.herramientas.utils.colors.Color;
 import ar.org.centro35.herramientas.utils.properties.SystemProperties;
 

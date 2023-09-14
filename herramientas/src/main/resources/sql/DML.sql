@@ -464,7 +464,7 @@ insert into herramientas (	codigo_articulo	,	marca	,	tipo	,	descripcion	,	estado
 (	6681	,	'BREMEN'	,	'MANUAL'	,'EXHIBIDOR BREMENO PERFORADO GRANDE (15 Ganchos)',	'BUENA'	),
 (	6623	,	'BREMEN'	,	'MANUAL'	,'EXHIBIDOR BREMEN® PERFORADO CHICO (15 Ganchos)',	'BUENA'	);
 
-
+/*
 INSERT INTO socios (id, nombre, apellido, tipo_documento, numero_documento, direccion, celular, telefono_linea, email, comentarios) VALUES
 (1, 'Juan', 'Pérez', 'DNI', '12345678', 'Av. Corrientes 1234', '1155556666', '0114444444', 'jperez@gmail.com', NULL),
 (2, 'Ana', 'García', 'LC', '87654321', 'Calle San Martín 432', '1166667777', NULL, 'agarcia@hotmail.com', NULL),
@@ -526,6 +526,6 @@ INSERT INTO prestamos (id_herramienta, id_socio, tipo_prestamo_hs, fecha_prestam
 (23, 1, 'h24', '2023-06-05', NULL, 'PENDIENTE', 'Ninguna'),
 (25, 1, 'h24', '2023-06-05', NULL, 'PENDIENTE', 'Ninguna'),
 (20, 22, 'h48', '2023-06-08', NULL, 'PENDIENTE', 'Ninguna');
-
+*/
 
 select * from herramientas;

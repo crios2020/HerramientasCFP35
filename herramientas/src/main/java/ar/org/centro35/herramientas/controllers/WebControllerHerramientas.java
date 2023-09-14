@@ -26,22 +26,13 @@ public class WebControllerHerramientas {
         model.addAttribute("estados", HerramientaEstado.values());
         model.addAttribute("mensajeHerramienta", mensajeHerramienta);
         model.addAttribute("herramienta", new Herramienta());
-        //model.addAttribute("all", hr.getAll());
-        // System.out.println("*********************************************************************************");
-        // System.out.println(buscar);
-        // System.out.println(buscar.length());
-        // System.out.println("*********************************************************************************");
         model.addAttribute("likeDescripcion", hr.getLikeDescripcion(buscar));
         return "herramientas";
     }
 
     @PostMapping("/herramientasSave")
     public String herramientasSave(@ModelAttribute Herramienta herramienta) {
-        // System.out.println("----------------------------------------------------");
-        // System.out.println(herramienta);
-        // System.out.println("----------------------------------------------------");
         try {
-            if(herramienta.getCodigo_articulo().length()!=13) herramienta.setCodigo_articulo(null);
             hr.save(herramienta);
             if(herramienta.getId()>0){
                 mensajeHerramienta="Se guardo la herramienta id:"+herramienta.getId();
@@ -59,9 +50,6 @@ public class WebControllerHerramientas {
 
     @PostMapping("herramientasRemove")
     public String herramientasRemove(@RequestParam(name="idBorrar", defaultValue = "0", required = false) int idBorrar){
-        // System.out.println("*************************************************************");
-        // System.out.println(idBorrar);
-        // System.out.println("*************************************************************");
         if(pr.getCantidadPrestamos(idBorrar)==0){
             hr.remove(hr.getById(idBorrar)); 
             mensajeHerramienta = "Se borro la herramienta id: "+idBorrar+"!";   

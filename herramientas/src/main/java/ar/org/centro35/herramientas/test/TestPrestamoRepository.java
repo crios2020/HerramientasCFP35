@@ -1,8 +1,5 @@
 package ar.org.centro35.herramientas.test;
 
-import java.text.DecimalFormat;
-import java.time.LocalTime;
-
 import ar.org.centro35.herramientas.entities.Prestamo;
 import ar.org.centro35.herramientas.enums.PrestamoEstado;
 import ar.org.centro35.herramientas.enums.PrestamoTipo;
