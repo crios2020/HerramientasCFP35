@@ -32,3 +32,4 @@ build/
 ### VS Code ###
 .vscode/
 /src/main/java/ar/org/centro35/herramientas/connectors/Connector.java
+/src/main/resources/application.properties
