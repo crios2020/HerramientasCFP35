@@ -22,7 +22,7 @@ public class HerramientasApplication {
 		System.out.println("- "+new SystemProperties().getJava());
 		System.out.println("- "+new SystemProperties().getFecha());
 		System.out.println("- "+new SystemProperties().getUbicacion());
-		System.out.println("- Servidor encendido url: http://localhost:8080/");
+		System.out.println("- Servidor encendido url: http://localhost:8088/");
 		System.out.println(Color.ANSI_RESET);
 
 		//para arrancar el server desde una consola bash
