@@ -11,13 +11,13 @@ public class HerramientasApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(HerramientasApplication.class, args);
 
-		System.out.println(Color.ANSI_GREEN+Color.ANSI_WHITE_BACKGROUND);
+		System.out.println(Color.ANSI_GREEN);
 		System.out.println("*************************************************************");
 		System.out.println("*                                                           *");
 		System.out.println("*        Centro de formación profesional Nro 35             *");
 		System.out.println("*                                                           *");
 		System.out.println("*************************************************************");
-		System.out.println("- Sistema de prestamo de herramientas - Version 0.1 Prototipo");
+		System.out.println("- Sistema de prestamo de herramientas - Version 0.2 Prototipo");
 		System.out.println("- "+new SystemProperties().getSystem());
 		System.out.println("- "+new SystemProperties().getJava());
 		System.out.println("- "+new SystemProperties().getFecha());
