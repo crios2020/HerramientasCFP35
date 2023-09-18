@@ -24,7 +24,7 @@ create table socios(
 
 create table herramientas(
 	id int auto_increment primary key,
-    codigo_articulo char(4),
+    codigo_articulo char(6),
     marca varchar(30) not null check (length(marca) >= 2),
     tipo enum('MANUAL','ELECTRICA','MEDICION') not null,
     descripcion varchar(255) not null  check (length(descripcion) >= 8),
