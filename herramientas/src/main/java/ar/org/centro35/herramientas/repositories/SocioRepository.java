@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import ar.org.centro35.herramientas.connectors.Connector;
 import ar.org.centro35.herramientas.entities.Socio;
+import ar.org.centro35.herramientas.enums.SocioEstado;
 import ar.org.centro35.herramientas.enums.TipoDocumento;
 
 public class SocioRepository {
@@ -61,7 +62,8 @@ public class SocioRepository {
                     rs.getString("celular"), 
                     rs.getString("telefono_linea"), 
                     rs.getString("email"), 
-                    rs.getString("comentarios")
+                    rs.getString("comentarios"),
+                    SocioEstado.valueOf(rs.getString("estado"))
                 ));
             }
         } catch (Exception e) {
@@ -85,7 +87,8 @@ public class SocioRepository {
                     rs.getString("celular"), 
                     rs.getString("telefono_linea"), 
                     rs.getString("email"), 
-                    rs.getString("comentarios")
+                    rs.getString("comentarios"),
+                    SocioEstado.valueOf(rs.getString("estado"))
                 ));
             }
         } catch (Exception e) {
@@ -108,7 +111,8 @@ public class SocioRepository {
                         rs.getString("celular"), 
                         rs.getString("telefono_linea"), 
                         rs.getString("email"), 
-                        rs.getString("comentarios")
+                        rs.getString("comentarios"),
+                        SocioEstado.valueOf(rs.getString("estado"))
                 );
             }
         } catch (Exception e) {

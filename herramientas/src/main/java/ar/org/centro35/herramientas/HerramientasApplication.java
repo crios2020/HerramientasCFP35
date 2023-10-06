@@ -9,24 +9,30 @@ import ar.org.centro35.herramientas.utils.properties.SystemProperties;
 public class HerramientasApplication {
 
 	public static void main(String[] args) {
+		
+		//Retardo de inicio para dar tiempo a que encienda el server de BD
+		System.out.println("Iniciando Server ..........");
+		try {
+			Thread.sleep(10000);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
 		SpringApplication.run(HerramientasApplication.class, args);
 
 		System.out.println(Color.ANSI_GREEN);
 		System.out.println("*************************************************************");
 		System.out.println("*                                                           *");
-		System.out.println("*        Centro de formación profesional Nro 35             *");
+		System.out.println("*        Sistema electrónico de pañol de herramientas       *");
 		System.out.println("*                                                           *");
 		System.out.println("*************************************************************");
-		System.out.println("- Sistema de prestamo de herramientas - Version 0.2 Prototipo");
+		System.out.println("- Version 0.3 Prototipo");
 		System.out.println("- "+new SystemProperties().getSystem());
 		System.out.println("- "+new SystemProperties().getJava());
 		System.out.println("- "+new SystemProperties().getFecha());
 		System.out.println("- "+new SystemProperties().getUbicacion());
 		System.out.println("- Servidor encendido url: http://localhost:8088/");
 		System.out.println(Color.ANSI_RESET);
-
-		//para arrancar el server desde una consola bash
-		//sh mvnw spring-boot:run
 		
 	}
 

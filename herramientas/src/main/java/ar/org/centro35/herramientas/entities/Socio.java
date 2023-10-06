@@ -1,5 +1,6 @@
 package ar.org.centro35.herramientas.entities;
 
+import ar.org.centro35.herramientas.enums.SocioEstado;
 import ar.org.centro35.herramientas.enums.TipoDocumento;
 
 public class Socio {
@@ -14,6 +15,7 @@ public class Socio {
     private String telefono_linea;
     private String email;
     private String comentarios;
+    private SocioEstado estado;
 
     public Socio() {
     }
@@ -29,10 +31,27 @@ public class Socio {
         this.telefono_linea = telefono_linea;
         this.email = email;
         this.comentarios = comentarios;
+        this.estado = SocioEstado.ACTIVO;
+    }
+
+    public Socio(String nombre, String apellido, TipoDocumento tipo_documento, String numero_documento,
+            String direccion, String celular, String telefono_linea, String email, String comentarios,
+            SocioEstado estado) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.tipo_documento = tipo_documento;
+        this.numero_documento = numero_documento;
+        this.direccion = direccion;
+        this.celular = celular;
+        this.telefono_linea = telefono_linea;
+        this.email = email;
+        this.comentarios = comentarios;
+        this.estado = estado;
     }
 
     public Socio(int id, String nombre, String apellido, TipoDocumento tipo_documento, String numero_documento,
-            String direccion, String celular, String telefono_linea, String email, String comentarios) {
+            String direccion, String celular, String telefono_linea, String email, String comentarios,
+            SocioEstado estado) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -43,6 +62,7 @@ public class Socio {
         this.telefono_linea = telefono_linea;
         this.email = email;
         this.comentarios = comentarios;
+        this.estado = estado;
     }
 
     @Override
@@ -50,7 +70,7 @@ public class Socio {
         return "Socio [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", tipo_documento="
                 + tipo_documento + ", numero_documento=" + numero_documento + ", direccion=" + direccion + ", celular="
                 + celular + ", telefono_linea=" + telefono_linea + ", email=" + email + ", comentarios=" + comentarios
-                + "]";
+                + ", estado=" + estado + "]";
     }
 
     public int getId() {
@@ -131,6 +151,14 @@ public class Socio {
 
     public void setComentarios(String comentarios) {
         this.comentarios = comentarios;
+    }
+
+    public SocioEstado getEstado() {
+        return estado;
+    }
+
+    public void setEstado(SocioEstado estado) {
+        this.estado = estado;
     }
 
 }
