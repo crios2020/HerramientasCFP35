@@ -1,6 +1,3 @@
-- agregar tipo_herramientas, neumatica - hidraulicas
-- no borrar registros, solo marcar como no activos
-- revisar solicitud de campos not null en front end
 - fijar por defecto prestamos a 96 hs
 - estudiar posibilidad de mensajeria o emails con vencimientos
 	(https://gustavopeiretti.com/spring-boot-enviar-emails/)

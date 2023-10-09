@@ -50,13 +50,15 @@ public class WebControllerHerramientas {
 
     @PostMapping("herramientasRemove")
     public String herramientasRemove(@RequestParam(name="idBorrar", defaultValue = "0", required = false) int idBorrar){
-        if(pr.getCantidadPrestamos(idBorrar)==0){
-            hr.remove(hr.getById(idBorrar)); 
-            mensajeHerramienta = "Se borro la herramienta id: "+idBorrar+"!";   
-        }else{
-            mensajeHerramienta = "No se pudo borrar la herramienta id: "+idBorrar+", por que tiene prestamos activos!";
-        }
-        
+        // if(pr.getCantidadPrestamos(idBorrar)==0){
+        //     hr.remove(hr.getById(idBorrar)); 
+        //     mensajeHerramienta = "Se borro la herramienta id: "+idBorrar+"!";   
+        // }else{
+        //     mensajeHerramienta = "No se pudo borrar la herramienta id: "+idBorrar+", por que tiene prestamos activos!";
+        // }
+
+        hr.remove(hr.getById(idBorrar)); 
+        mensajeHerramienta = "Se borro la herramienta id: "+idBorrar+"!";   
         return "redirect:herramientas";     
     }
 }

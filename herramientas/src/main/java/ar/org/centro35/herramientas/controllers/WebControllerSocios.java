@@ -51,12 +51,14 @@ public class WebControllerSocios {
 
     @PostMapping("sociosRemove")
     public String herramientasRemove(@RequestParam(name="idBorrar", defaultValue = "0", required = false) int idBorrar){
-        if(pr.getCantidadPrestamosSocio(idBorrar)==0){
-            sr.remove(sr.getById(idBorrar)); 
-            mensajeSocio = "Se borro el socio id: "+idBorrar+"!";   
-        }else{
-            mensajeSocio = "No se pudo borrar el socio id: "+idBorrar+", por que tiene prestamos activos!";
-        }
+        // if(pr.getCantidadPrestamosSocio(idBorrar)==0){
+        //     sr.remove(sr.getById(idBorrar)); 
+        //     mensajeSocio = "Se borro el socio id: "+idBorrar+"!";   
+        // }else{
+        //     mensajeSocio = "No se pudo borrar el socio id: "+idBorrar+", por que tiene prestamos activos!";
+        // }
+        sr.remove(sr.getById(idBorrar)); 
+        mensajeSocio = "Se borro el socio id: "+idBorrar+"!";   
         return "redirect:socios";     
     }
 

@@ -40,8 +40,8 @@ public class WebControllerConfiguracion {
         FileText fText = new FileText(file);
         fText.clear();
         fText.addLine(
-                "id,nombre,apellido,tipo_documento,numero_documento,dirección,celular,teléfono_linea,email,comentarios");
-        for (Socio socio : sr.getAll()) {
+                "id,nombre,apellido,tipo_documento,número_documento,dirección,celular,teléfono_linea,email,comentarios");
+        for (Socio socio : sr.getAllXL()) {
             fText.addLine(
                     socio.getId() + "," +
                             ((socio.getNombre() == null) ? "," : socio.getNombre().replace(",", "-") + ",") +
@@ -56,7 +56,9 @@ public class WebControllerConfiguracion {
                                     : socio.getTelefono_linea().replace(",", "-") + ",")
                             +
                             ((socio.getEmail() == null) ? "," : socio.getEmail().replace(",", "-") + ",") +
-                            ((socio.getComentarios() == null) ? "," : socio.getComentarios().replace(",", "-")));
+                            ((socio.getComentarios() == null) ? "," : socio.getComentarios().replace(",", "-"))
+                            +
+                            ((socio.getEstado() == null) ? "," : socio.getEstado()));
         }
         mensajeConfiguracion = "Se realizo el backup de entidad socios, archivo: " + file;
         return "redirect:configuracion";
@@ -67,8 +69,8 @@ public class WebControllerConfiguracion {
         String file = "herramientas-" + new SystemProperties().getFechaSQL() + ".csv";
         FileText fText = new FileText(file);
         fText.clear();
-        fText.addLine("id,codigo_articulo,marca,tipo,descripcion,estado,observaciones");
-        for (Herramienta herramienta : hr.getAll()) {
+        fText.addLine("id,código_articulo,marca,tipo,descripción,estado,observaciones");
+        for (Herramienta herramienta : hr.getAllXL()) {
             fText.addLine(
                     herramienta.getId() + "," +
                             ((herramienta.getCodigo_articulo() == null) ? ","
@@ -92,8 +94,8 @@ public class WebControllerConfiguracion {
         String file = "prestamos-" + new SystemProperties().getFechaSQL() + ".csv";
         FileText fText = new FileText(file);
         fText.clear();
-        fText.addLine("id,id_herramienta,id_socio,tipo_prestamo_hs,dfecha_prestamo,fecha_devolucion,estado_devolucion,observaciones");
-        for (Prestamo prestamo : pr.getAll()) {
+        fText.addLine("id,id_herramienta,id_socio,tipo_prestamo_hs,fecha_prestamo,fecha_devolución,estado_devolución,observaciones");
+        for (Prestamo prestamo : pr.getAllXL()) {
             fText.addLine(
                     prestamo.getId() + "," +
                     prestamo.getId_herramienta() + "," +

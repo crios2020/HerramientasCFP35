@@ -13,7 +13,7 @@ public class HerramientasApplication {
 		//Retardo de inicio para dar tiempo a que encienda el server de BD
 		System.out.println("Iniciando Server ..........");
 		try {
-			Thread.sleep(10000);
+			Thread.sleep(6000);
 		} catch (Exception e) {
 			System.out.println(e);
 		}

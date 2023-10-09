@@ -23,6 +23,8 @@
         <!-- Formulario Configuración Sistema-->
         <form>
             <div class="mb-3 row">
+
+                <!-- Campo sistema -->
                 <div class="mb-3 row">
                     <label for="sistema" class="col-sm-3 col-form-label text-primary">Sistema Operativo</label>
                     <div class="col-sm-9">
@@ -30,6 +32,8 @@
                             readonly>
                     </div>
                 </div>
+
+                <!-- Campo version_java -->
                 <div class="mb-3 row">
                     <label for="java" class="col-sm-3 col-form-label text-primary">Versión de Java</label>
                     <div class="col-sm-9">
@@ -37,6 +41,8 @@
                             readonly>
                     </div>
                 </div>
+
+                <!-- Campo user -->
                 <div class="mb-3 row">
                     <label for="user" class="col-sm-3 col-form-label text-primary">Usuario:</label>
                     <div class="col-sm-9">
@@ -44,6 +50,8 @@
                             readonly>
                     </div>
                 </div>
+
+                <!-- Campo ubicacion -->
                 <div class="mb-3 row">
                     <label for="ubicacion" class="col-sm-3 col-form-label text-primary">Ubicación:</label>
                     <div class="col-sm-9">
@@ -51,6 +59,8 @@
                             disabled readonly>
                     </div>
                 </div>
+
+                <!-- Campo fecha -->
                 <div class="mb-3 row">
                     <label for="fecha" class="col-sm-3 col-form-label text-primary">Fecha:</label>
                     <div class="col-sm-9">
@@ -58,6 +68,8 @@
                             readonly>
                     </div>
                 </div>
+
+                <!-- Campo base de datos -->
                 <div class="mb-3 row">
                     <label for="url" class="col-sm-3 col-form-label text-primary">Base de datos (URL):</label>
                     <div class="col-sm-9">
@@ -67,6 +79,8 @@
                 </div>
             </div>
         </form>
+
+        <!-- botones de backup -->
         <div class="mb-3 row">
             <form th:action="@{/herramientasBackup}" method="get" class="col-sm-3">
                 <button type="submit" class="btn btn-primary col-sm-9 m-1 p-1">Descargar Herramientas</button>
@@ -75,7 +89,7 @@
                 <button type="submit" class="btn btn-primary col-sm-9 m-1 p-1">Descargar Socios</button>
             </form>
             <form th:action="@{/prestamosBackup}" method="get" class="col-sm-3">
-                <button type="submit" class="btn btn-primary col-sm-9 m-1 p-1">Descargar Prestamo</button>
+                <button type="submit" class="btn btn-primary col-sm-9 m-1 p-1">Descargar Prestamos</button>
             </form>
         </div>
         <div class="mb-3 row">

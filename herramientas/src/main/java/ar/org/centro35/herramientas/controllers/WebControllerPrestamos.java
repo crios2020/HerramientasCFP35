@@ -44,12 +44,12 @@ public class WebControllerPrestamos {
         model.addAttribute("prestamosPatron", pr.getPrestamosPendientes(buscar));
         Map<Integer, Herramienta> mapaHerramientas=new LinkedHashMap();
         hr
-            .getAll()
+            .getAllXL()
             .forEach(h->mapaHerramientas.put(h.getId(), h));
         model.addAttribute("mapaHerramientas", mapaHerramientas);
         Map<Integer, Socio> mapaSocios=new LinkedHashMap();
         sr
-            .getAll()
+            .getAllXL()
             .forEach(s->mapaSocios.put(s.getId(), s));
         model.addAttribute("mapaSocios", mapaSocios);
         return "prestamos";

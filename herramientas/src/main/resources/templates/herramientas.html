@@ -21,7 +21,10 @@
 
         <!-- Formulario Alta Herramienta-->
         <form th:object="${herramienta}" th:action="@{/herramientasSave}" method="post">
+
             <div class="mb-3 row">
+
+                <!-- Campo codigo -->
                 <div class="mb-3 row">
                     <label for="codigo_articulo" class="col-sm-3 col-form-label text-primary">Código de Árticulo</label>
                     <div class="col-sm-9">
@@ -29,6 +32,8 @@
                             th:field="*{codigo_articulo}" maxlength="13">
                     </div>
                 </div>
+
+                <!-- Campo marca -->
                 <div class="mb-3 row">
                     <label for="marca" class="col-sm-3 col-form-label text-primary">Marca</label>
                     <div class="col-sm-9">
@@ -36,6 +41,8 @@
                             minlength="2" maxlength="30">
                     </div>
                 </div>
+
+                <!-- Campo tipo -->
                 <div class="mb-3 row">
                     <label for="herramientaTipo" class="col-sm-3 col-form-label text-primary">Tipo Herramienta</label>
                     <div class="col-sm-9">
@@ -45,6 +52,8 @@
                         </select>
                     </div>
                 </div>
+
+                <!-- Campo descripcion -->
                 <div class="mb-3 row">
                     <label for="descripcion" class="col-sm-3 col-form-label text-primary">Descripción</label>
                     <div class="col-sm-9">
@@ -52,6 +61,8 @@
                             minlength="8" maxlength="255">
                     </div>
                 </div>
+
+                <!-- Campo herramientaEstado -->
                 <div class="mb-3 row">
                     <label for="herramientaEstado" class="col-sm-3 col-form-label text-primary">Herramienta
                         Estado</label>
@@ -62,6 +73,8 @@
                         </select>
                     </div>
                 </div>
+
+                <!-- Campo obsercaciones -->
                 <div class="mb-3 row">
                     <label for="observaciones" class="col-sm-3 col-form-label text-primary">Observaciones</label>
                     <div class="col-sm-9">
@@ -69,10 +82,14 @@
                             maxlength="255" rows="3"></textarea>
                     </div>
                 </div>
+
+                <!-- Campo botones -->
                 <div class="mb-3 row">
                     <button type="reset" class="btn btn-danger col-sm-3 m-1">Limpiar</button>
                     <button type="submit" class="btn btn-primary col-sm-3 m-1">Guardar</button>
                 </div>
+
+                <!-- Campo informacion -->
                 <div class="mb-3 row">
                     <label for="info" class="col-sm-2 col-form-label text-primary">Información</label>
                     <div class="col-sm-10">

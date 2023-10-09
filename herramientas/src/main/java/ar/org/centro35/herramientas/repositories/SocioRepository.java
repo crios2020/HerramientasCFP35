@@ -40,7 +40,7 @@ public class SocioRepository {
 
     public void remove(Socio socio){
        if(socio==null) return;
-       try (PreparedStatement ps=conn.prepareStatement("delete from socios where id=?")){
+       try (PreparedStatement ps=conn.prepareStatement("update socios set estado='NO_ACTIVO' where id=?")){
             ps.setInt(1,socio.getId());
             ps.execute();
        } catch (Exception e) {
@@ -48,7 +48,31 @@ public class SocioRepository {
        }
     }
     
-    public List<Socio>getAll(){           //select * from socios
+    public List<Socio>getAll(){
+        List<Socio>list=new ArrayList();
+        try (ResultSet rs=conn.createStatement().executeQuery("select * from socios where estado!='NO_ACTIVO'")){
+            while(rs.next()){
+                list.add(new Socio(
+                    rs.getInt("id"), 
+                    rs.getString("nombre"), 
+                    rs.getString("apellido"), 
+                    TipoDocumento.valueOf(rs.getString("tipo_documento")), 
+                    rs.getString("numero_documento"),
+                    rs.getString("direccion"), 
+                    rs.getString("celular"), 
+                    rs.getString("telefono_linea"), 
+                    rs.getString("email"), 
+                    rs.getString("comentarios"),
+                    SocioEstado.valueOf(rs.getString("estado"))
+                ));
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return list;
+    }
+    
+    public List<Socio>getAllXL(){
         List<Socio>list=new ArrayList();
         try (ResultSet rs=conn.createStatement().executeQuery("select * from socios")){
             while(rs.next()){
@@ -72,10 +96,10 @@ public class SocioRepository {
         return list;
     }
 
-    public List<Socio>getLikeApellido(String apellido){           //select * from socios where apellido like '%apellido%'
+    public List<Socio>getLikeApellido(String apellido){       
           List<Socio>list=new ArrayList();
         try (ResultSet rs=conn.createStatement().executeQuery(
-                "select * from socios where apellido like '%"+apellido+"%'")){
+                "select * from socios where apellido like '%"+apellido+"%' and estado!='NO_ACTIVO'")){
             while(rs.next()){
                 list.add(new Socio(
                     rs.getInt("id"), 

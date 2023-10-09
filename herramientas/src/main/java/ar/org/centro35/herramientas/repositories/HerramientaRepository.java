@@ -36,7 +36,7 @@ public class HerramientaRepository {
 
     public void remove(Herramienta herramienta){
         if(herramienta==null) return;
-        try (PreparedStatement ps=conn.prepareStatement("delete from herramientas where id=?")){
+        try (PreparedStatement ps=conn.prepareStatement("update herramientas set estado='FUERA_DE_USO' where id=?")){
             ps.setInt(1, herramienta.getId());    
             ps.execute();
         } catch (Exception e) {
@@ -44,7 +44,27 @@ public class HerramientaRepository {
         }
     }
     
-    public List<Herramienta>getAll(){           //select * from herramientas
+    public List<Herramienta>getAll(){
+        List<Herramienta>list=new ArrayList();
+        try (ResultSet rs=conn.createStatement().executeQuery("select * from herramientas where estado != 'FUERA_DE_USO'")){
+            while(rs.next()){
+                list.add(new Herramienta(
+                                            rs.getInt("id"), 
+                                            rs.getString("codigo_articulo"), 
+                                            rs.getString("marca"), 
+                                            HerramientaTipo.valueOf(rs.getString("tipo")), 
+                                            rs.getString("descripcion"), 
+                                            HerramientaEstado.valueOf(rs.getString("estado")), 
+                                            rs.getString("observaciones")
+                ));
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return list;
+    }
+
+    public List<Herramienta>getAllXL(){
         List<Herramienta>list=new ArrayList();
         try (ResultSet rs=conn.createStatement().executeQuery("select * from herramientas")){
             while(rs.next()){
@@ -64,9 +84,9 @@ public class HerramientaRepository {
         return list;
     }
 
-    public List<Herramienta>getLikeMarca(String marca){           //select * from herramientas where marca like '%marca%'
+    public List<Herramienta>getLikeMarca(String marca){
         List<Herramienta>list=new ArrayList();
-        try (ResultSet rs=conn.createStatement().executeQuery("select * from herramientas where marca like '%"+marca+"%'")){
+        try (ResultSet rs=conn.createStatement().executeQuery("select * from herramientas where marca like '%"+marca+"%' and estado != 'FUERA_DE_USO'")){
             while(rs.next()){
                 list.add(new Herramienta(
                                             rs.getInt("id"), 
@@ -84,9 +104,9 @@ public class HerramientaRepository {
         return list;
     }
 
-    public List<Herramienta>getLikeDescripcion(String descripcion){           //select * from herramientas where marca like '%descripcion%'
+    public List<Herramienta>getLikeDescripcion(String descripcion){
         List<Herramienta>list=new ArrayList();
-        try (ResultSet rs=conn.createStatement().executeQuery("select * from herramientas where descripcion like '%"+descripcion+"%'")){
+        try (ResultSet rs=conn.createStatement().executeQuery("select * from herramientas where descripcion like '%"+descripcion+"%' and estado != 'FUERA_DE_USO'")){
             while(rs.next()){
                 list.add(new Herramienta(
                                             rs.getInt("id"), 
@@ -104,7 +124,7 @@ public class HerramientaRepository {
         return list;
     }
 
-    public Herramienta getById(int id){     //select * from herramientas where id=?
+    public Herramienta getById(int id){
         Herramienta herramienta=new Herramienta();
         try(ResultSet rs=conn.createStatement().executeQuery("select * from herramientas where id="+id)) {
             if(rs.next()){

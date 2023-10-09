@@ -23,20 +23,26 @@
         <form th:object="${socio}" th:action="@{/sociosSave}" method="post">
 
             <div class="mb-3 row">
+
+                <!-- Campo nombre -->
                 <div class="mb-3 row">
                     <label for="nombre" class="col-sm-3 col-form-label text-primary">Nombre</label>
                     <div class="col-sm-9">
                         <input type="text" class="form-control text-primary" id="nombre" th:field="*{nombre}"
-                            minlength="2" maxlength="25">
+                            minlength="2" maxlength="25" required>
                     </div>
                 </div>
+
+                <!-- Campo apellido -->
                 <div class="mb-3 row">
                     <label for="apellido" class="col-sm-3 col-form-label text-primary">Apellido</label>
                     <div class="col-sm-9">
                         <input type="text" class="form-control text-primary" id="apellido" th:field="*{apellido}"
-                            minlength="2" maxlength="25">
+                            minlength="2" maxlength="25" required>
                     </div>
                 </div>
+
+                <!-- Campo tipo_documento -->
                 <div class="mb-3 row">
                     <label for="tipo_documento" class="col-sm-3 col-form-label text-primary">Tipo Documento</label>
                     <div class="col-sm-9">
@@ -46,27 +52,35 @@
                         </select>
                     </div>
                 </div>
+
+                <!-- Campo numero_documento -->
                 <div class="mb-3 row">
                     <label for="numero_documento" class="col-sm-3 col-form-label text-primary">Nro Documento</label>
                     <div class="col-sm-9">
                         <input type="text" class="form-control text-primary" id="numero_documento"
-                            th:field="*{numero_documento}" minlength="8" maxlength="8">
+                            th:field="*{numero_documento}" minlength="8" maxlength="8" required>
                     </div>
                 </div>
+
+                <!-- Campo direccion -->
                 <div class="mb-3 row">
                     <label for="direccion" class="col-sm-3 col-form-label text-primary">Dirección</label>
                     <div class="col-sm-9">
                         <input type="text" class="form-control text-primary" id="direccion" th:field="*{direccion}"
-                            minlength="8" maxlength="150">
+                            minlength="8" maxlength="150" required>
                     </div>
                 </div>
+
+                <!-- Campo celular -->
                 <div class="mb-3 row">
                     <label for="celular" class="col-sm-3 col-form-label text-primary">Celular</label>
                     <div class="col-sm-9">
                         <input type="text" class="form-control text-primary" id="celular" th:field="*{celular}"
-                            minlength="8" maxlength="25">
+                            minlength="8" maxlength="25" required>
                     </div>
                 </div>
+
+                <!-- Campo telefono_linea -->
                 <div class="mb-3 row">
                     <label for="telefono_linea" class="col-sm-3 col-form-label text-primary">Telefono fijo</label>
                     <div class="col-sm-9">
@@ -74,13 +88,17 @@
                             th:field="*{telefono_linea}" maxlength="25">
                     </div>
                 </div>
+
+                <!-- Campo email -->
                 <div class="mb-3 row">
                     <label for="email" class="col-sm-3 col-form-label text-primary">Email</label>
                     <div class="col-sm-9">
                         <input type="text" class="form-control text-primary" id="email" th:field="*{email}"
-                            maxlength="25">
+                            maxlength="25" required>
                     </div>
                 </div>
+
+                <!-- Campo comentarios -->
                 <div class="mb-3 row">
                     <label for="comentarios" class="col-sm-3 col-form-label text-primary">Comentarios</label>
                     <div class="col-sm-9">
@@ -88,10 +106,14 @@
                             maxlength="255" rows="3"></textarea>
                     </div>
                 </div>
+
+                <!-- Botones -->
                 <div class="mb-3 row">
                     <button type="reset" class="btn btn-danger col-sm-3 m-1">Limpiar</button>
                     <button type="submit" class="btn btn-primary col-sm-3 m-1">Guardar</button>
                 </div>
+
+                <!-- Campo informacion -->
                 <div class="mb-3 row">
                     <label for="info" class="col-sm-2 col-form-label text-primary">Información</label>
                     <div class="col-sm-10">

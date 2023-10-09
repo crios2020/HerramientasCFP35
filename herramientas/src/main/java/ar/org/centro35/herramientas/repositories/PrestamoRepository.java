@@ -39,7 +39,7 @@ public class PrestamoRepository {
 
     public void remove(Prestamo prestamo){
         if(prestamo==null) return;
-        try (PreparedStatement ps=conn.prepareStatement("delete from prestamos where id=?")){
+        try (PreparedStatement ps=conn.prepareStatement("update prestamos set estado_devolucion='CANCELADO' where id=?")){
             ps.setInt(1, prestamo.getId());
             ps.execute();
         } catch (Exception e) {
@@ -69,7 +69,28 @@ public class PrestamoRepository {
         }
     }
     
-    public List<Prestamo>getAll(){           //select * from prestamos
+    public List<Prestamo>getAll(){
+        List<Prestamo>list=new ArrayList();
+        try (ResultSet rs=conn.createStatement().executeQuery("select * from prestamos and estado_devolucion!='CANCELADO'")){
+            while(rs.next()){
+                list.add(new Prestamo(
+                                        rs.getInt("id"), 
+                                        rs.getInt("id_herramienta"), 
+                                        rs.getInt("id_socio"), 
+                                        PrestamoTipo.valueOf(rs.getString("tipo_prestamo_hs")), 
+                                        rs.getString("fecha_prestamo"), 
+                                        rs.getString("fecha_devolucion"), 
+                                        PrestamoEstado.valueOf(rs.getString("estado_devolucion")), 
+                                        rs.getString("observaciones")
+                                    ));
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return list;
+    }
+
+    public List<Prestamo>getAllXL(){
         List<Prestamo>list=new ArrayList();
         try (ResultSet rs=conn.createStatement().executeQuery("select * from prestamos")){
             while(rs.next()){
@@ -90,7 +111,7 @@ public class PrestamoRepository {
         return list;
     }
 
-    public List<Prestamo>getPrestamosPendientes(){  //select * from prestamos where estado_devolucion='PENDIENTE' or fecha_devolucion=curdate()
+    public List<Prestamo>getPrestamosPendientes(){
         List<Prestamo>list=new ArrayList();
         try (ResultSet rs=conn.createStatement().executeQuery("select * from prestamos where estado_devolucion='PENDIENTE' or fecha_devolucion=curdate()")){
             while(rs.next()){
@@ -139,7 +160,7 @@ public class PrestamoRepository {
         return list;
     }
 
-    public List<Prestamo>getByFechaPrestamo(String fecha_prestamo){           //select * from prestamos where fecha_prestamo=fecha_prestamo
+    public List<Prestamo>getByFechaPrestamo(String fecha_prestamo){  
         List<Prestamo>list=new ArrayList();
         try (ResultSet rs=conn.createStatement().executeQuery("select * from prestamos where fecha_prestamo='"+fecha_prestamo+"'")){
             while(rs.next()){
@@ -160,7 +181,7 @@ public class PrestamoRepository {
         return list;
     }
 
-    public Prestamo getById(int id){     //select * from prestamos where id=?
+    public Prestamo getById(int id){
         Prestamo prestamo=new Prestamo();
         try (ResultSet rs=conn.createStatement().executeQuery("select * from prestamos where id="+id)) {
             if(rs.next()){
