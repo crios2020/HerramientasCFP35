@@ -25,7 +25,7 @@
             <div class="mb-3 row">
 
                 <!-- Campo sistema -->
-                <div class="mb-3 row">
+                <div class="mb-3 row col-sm-6">
                     <label for="sistema" class="col-sm-3 col-form-label text-primary">Sistema Operativo</label>
                     <div class="col-sm-9">
                         <input type="text" class="form-control text-primary" id="sistema" th:value="${system}" disabled
@@ -34,7 +34,7 @@
                 </div>
 
                 <!-- Campo version_java -->
-                <div class="mb-3 row">
+                <div class="mb-3 row col-sm-6">
                     <label for="java" class="col-sm-3 col-form-label text-primary">Versión de Java</label>
                     <div class="col-sm-9">
                         <input type="text" class="form-control text-primary" id="java" th:value="${java}" disabled
@@ -43,7 +43,7 @@
                 </div>
 
                 <!-- Campo user -->
-                <div class="mb-3 row">
+                <div class="mb-3 row col-sm-6">
                     <label for="user" class="col-sm-3 col-form-label text-primary">Usuario:</label>
                     <div class="col-sm-9">
                         <input type="text" class="form-control text-primary" id="user" th:value="${user}" disabled
@@ -52,7 +52,7 @@
                 </div>
 
                 <!-- Campo ubicacion -->
-                <div class="mb-3 row">
+                <div class="mb-3 row col-sm-6">
                     <label for="ubicacion" class="col-sm-3 col-form-label text-primary">Ubicación:</label>
                     <div class="col-sm-9">
                         <input type="text" class="form-control text-primary" id="ubicacion" th:value="${ubicacion}"
@@ -61,7 +61,7 @@
                 </div>
 
                 <!-- Campo fecha -->
-                <div class="mb-3 row">
+                <div class="mb-3 row col-sm-6">
                     <label for="fecha" class="col-sm-3 col-form-label text-primary">Fecha:</label>
                     <div class="col-sm-9">
                         <input type="text" class="form-control text-primary" id="fecha" th:value="${fecha}" disabled
@@ -69,8 +69,26 @@
                     </div>
                 </div>
 
+                <!-- Campo hora -->
+                <div class="mb-3 row col-sm-6">
+                    <label for="hora" class="col-sm-3 col-form-label text-primary">Hora:</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control text-primary" id="hora" disabled
+                            readonly>
+                    </div>
+                </div>
+
+                <!-- Campo ip -->
+                <div class="mb-3 row col-sm-6">
+                    <label for="ip" class="col-sm-3 col-form-label text-primary">Ip Pública:</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control text-primary" id="ip" disabled
+                            readonly>
+                    </div>
+                </div>
+
                 <!-- Campo base de datos -->
-                <div class="mb-3 row">
+                <div class="mb-3 row col-sm-6">
                     <label for="url" class="col-sm-3 col-form-label text-primary">Base de datos (URL):</label>
                     <div class="col-sm-9">
                         <input type="text" class="form-control text-primary" id="url" th:value="${url}" disabled
@@ -82,13 +100,13 @@
 
         <!-- botones de backup -->
         <div class="mb-3 row">
-            <form th:action="@{/herramientasBackup}" method="get" class="col-sm-3">
+            <form th:action="@{/herramientasBackup}" method="get" class="col-sm-4">
                 <button type="submit" class="btn btn-primary col-sm-9 m-1 p-1">Descargar Herramientas</button>
             </form>
-            <form th:action="@{/sociosBackup}" method="get" class="col-sm-3">
+            <form th:action="@{/sociosBackup}" method="get" class="col-sm-4">
                 <button type="submit" class="btn btn-primary col-sm-9 m-1 p-1">Descargar Socios</button>
             </form>
-            <form th:action="@{/prestamosBackup}" method="get" class="col-sm-3">
+            <form th:action="@{/prestamosBackup}" method="get" class="col-sm-4">
                 <button type="submit" class="btn btn-primary col-sm-9 m-1 p-1">Descargar Prestamos</button>
             </form>
         </div>
@@ -107,6 +125,6 @@
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
+    <script type="text/javascript" src="https://api.ipify.org/?format=jsonp&callback=get_ip"></script>  
 </body>
-
 </html>

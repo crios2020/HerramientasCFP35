@@ -1,17 +1,24 @@
 function ActualizarHora() {
-    var fecha = new Date();
-    var segundos = fecha.getSeconds();
-    var minutos = fecha.getMinutes();
-    var horas = fecha.getHours();
+    let fecha = new Date();
+    let segundos = fecha.getSeconds();
+    let minutos = fecha.getMinutes();
+    let horas = fecha.getHours();
 
-    var elementoHoras = document.getElementById("pHoras");
-    var elementoMinutos = document.getElementById("pMinutos");
-    var elementoSegundos = document.getElementById("pSegundos");
+    let elementoHoras = document.getElementById("pHoras");
+    let elementoMinutos = document.getElementById("pMinutos");
+    let elementoSegundos = document.getElementById("pSegundos");
 
     elementoHoras.textContent = horas.toString().padStart(2, "0");
     elementoMinutos.textContent = minutos.toString().padStart(2, "0");
     elementoSegundos.textContent = segundos.toString().padStart(2, "0");
 
+    let hora=   horas.toString().padStart(2, "0")+":"+
+                minutos.toString().padStart(2, "0")+":"+
+                segundos.toString().padStart(2, "0")
+    try{
+        document.getElementById('hora').setAttribute('value',hora)
+    }catch(e){}
+            
 }
 
 setInterval(ActualizarHora, 1000);
@@ -23,4 +30,10 @@ function confirmarEliminacion() {
 
 function confirmarDevolucion() {
     return window.confirm("¿Estás seguro de que deseas devolver?");
+}
+
+function get_ip(obj){
+    try{
+        document.getElementById('ip').setAttribute('value',obj.ip)
+    }catch(e){}  
 }
